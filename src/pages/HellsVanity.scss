@@ -1,0 +1,572 @@
+.hells-page {
+    display: flex;
+    flex-direction: column;
+    /* Apila las secciones */
+}
+
+.hero-section {
+    display: flex;
+    // height: 100vh;
+    background-color: #000;
+    color: #fff;
+
+    .left-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        // padding: 40px;
+        .separar-letras {
+            padding: 16px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+
+            .logo-icon {
+                font-size: 24px;
+                font-weight: bold;
+                margin-right: 10px;
+            }
+
+            .logo-text {
+                font-size: 18px;
+                font-weight: 500;
+            }
+        }
+
+        .welcome-title {
+            font-size: 55px;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+
+        .explore-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            background-color: #fff;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #e6e6e6;
+            }
+        }
+    }
+
+    .right-section {
+        flex: 1;
+        // position: relative;
+        // display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .tattoo-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .menu {
+            position: absolute;
+            top: 75px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+
+            .search-button,
+            .menu-button {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                background-color: #fff;
+                color: #000;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 15px;
+                font-size: 14px;
+                font-weight: bold;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #e6e6e6;
+                }
+
+                .icon {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+
+.blog-section {
+    background-color: #000;
+    color: #fff;
+    padding: 40px;
+
+    .blog-title {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 30px;
+
+        text-align: center;
+    }
+
+    .blog-cards {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+
+        .blog-card {
+            background-color: #1a1a1a;
+            color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            .blog-image {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+            }
+
+            .blog-content {
+                padding: 20px;
+
+                .author {
+                    font-size: 14px;
+                    color: #aaa;
+                    margin-bottom: 10px;
+                }
+
+                .blog-heading {
+                    font-size: 18px;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+
+                .blog-description {
+                    font-size: 14px;
+                    color: #ccc;
+                    margin-bottom: 20px;
+                    line-height: 1.5;
+                }
+
+                .blog-meta {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 14px;
+                    color: #aaa;
+
+                    .views,
+                    .likes {
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                    }
+
+                    .likes {
+                        color: #e63946;
+                    }
+                }
+            }
+        }
+    }
+
+    .services-container {
+        border: 2px solid white
+    }
+
+
+
+
+}
+
+.hells-page {
+    background-color: #000;
+    /* Fondo negro */
+    color: #fff;
+    /* Texto blanco */
+    // padding: 40px;
+
+    .services-section {
+        text-align: center;
+
+        .services-title {
+            font-size: 36px;
+            font-weight: bold;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            white-space: normal;
+            text-align: center;
+            color: #fff;
+        }
+
+        .services-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+
+            .service-card {
+                background-color: transparent;
+                border: 2px solid #fff;
+                /* Bordes blancos */
+                padding: 20px;
+                width: 220px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                transition: transform 0.3s;
+
+                &:hover {
+                    transform: translateY(-5px);
+                    border-color: #f4c542;
+                    /* Cambio de color al hover */
+                }
+
+                .service-name {
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                    position: relative;
+                    padding-bottom: 10px;
+                    /* Espacio para el borde */
+                    width: 100%;
+
+                    /* Línea debajo del nombre */
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        height: 2px;
+                        background-color: #fff;
+                        /* Color de la línea */
+                    }
+                }
+
+                .service-price {
+                    font-size: 20px;
+                    color: #fff;
+                    /* Texto blanco */
+                    margin-bottom: 20px;
+                }
+
+                .reserve-button {
+                    padding: 10px 15px;
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #000;
+                    background-color: #fff;
+                    /* Botón blanco */
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: background-color 0.3s, color 0.3s;
+
+                    &:hover {
+                        background-color: #f4c542;
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.tattoo-services {
+    background-color: #000;
+    /* Fondo negro */
+    color: #fff;
+    /* Texto blanco */
+    padding: 40px;
+
+    .services-section {
+        text-align: center;
+
+        .services-title {
+            padding: 0 10px; // Añade espacio lateral si quieres
+            font-size: 36px;
+            font-weight: bold;
+            margin-top: 33px;
+            margin-bottom: 16px;
+        }
+
+        .services-subtitle {
+            font-size: 18px;
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+
+        .services-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+
+            .service-card {
+                background-color: transparent;
+                border: 1px solid #fff;
+                /* Bordes blancos */
+                padding: 20px;
+                width: 300px;
+                /* Ancho fijo para cada tarjeta */
+                text-align: left;
+                transition: transform 0.3s, border-color 0.3s;
+                text-align: center;
+
+                &:hover {
+                    transform: translateY(-5px);
+                    border-color: #f4c542;
+                    /* Cambio de color al hover */
+                }
+
+                .service-heading {
+                    font-size: 33px;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                    text-align: center;
+                }
+
+                .service-subheading {
+                    font-size: 16px;
+                    color: #f4c542;
+                    /* Subtítulo en color amarillo */
+                    margin-bottom: 15px;
+                }
+
+                .service-description {
+                    font-size: 14px;
+                    color: #ccc;
+                    /* Texto gris claro */
+                    line-height: 1.6;
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    background-color: #000;
+    /* Fondo negro */
+    color: #fff;
+    /* Texto blanco */
+    padding: 40px 20px;
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+
+        .footer-logo {
+            text-align: left;
+            margin-bottom: 20px;
+
+            h2 {
+                font-size: 24px;
+                font-weight: bold;
+                margin: 0;
+            }
+        }
+
+        .footer-columns {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #fff;
+            /* Línea superior */
+            padding-top: 20px;
+
+            .footer-column {
+                flex: 1;
+                text-align: center;
+
+                p {
+                    margin: 5px 0;
+                    font-size: 14px;
+                    color: #ccc;
+                    /* Texto gris claro */
+                }
+
+                &:not(:last-child) {
+                    border-right: 1px solid #fff;
+                    /* Bordes divisores */
+                }
+            }
+        }
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .logo-image {
+        width: 255px;
+        /* Ajusta el tamaño según sea necesario */
+        height: auto;
+        margin-right: 10px;
+        margin-bottom: -55px;
+    }
+
+    .logo-text {
+        font-size: 18px;
+        font-weight: 500;
+        color: #fff;
+    }
+}
+
+.line-break-mobile {
+    display: inline;
+}
+
+
+@media (max-width: 768px) {
+    .line-break-mobile {
+        display: block; // Esto hace que "a" quede solita en una línea
+    }
+
+    .menu {
+        display: none !important; // Oculta todo el contenedor de botones
+    }
+
+    .hells-page {
+        padding: 0px;
+    }
+
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        height: none;
+
+        .left-section {
+            padding: 0px
+        }
+
+        .tattoo-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain; // Asegura que la imagen no se recorte
+            max-height: 80vh; // Evita que ocupe toda la pantalla
+        }
+
+        .right-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // padding: 10px;
+        }
+
+        .left-section .welcome-title {
+            // font-size: 45px;
+        }
+
+        .left-section .explore-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            background-color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100px;
+            margin: 0 5px;
+        }
+
+        .menu {
+            position: static;
+            margin-top: 10px;
+
+            button {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+    }
+
+    .services-section {
+        .services-container {
+            flex-direction: column;
+            gap: 20px;
+
+            .service-card {
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+    }
+
+
+
+    .blog-section {
+        // padding: 55px;
+        margin-bottom: -55px;
+        padding-top: 0px;
+        padding: 33px;
+
+
+        .blog-title {
+            margin-top: 0px;
+        }
+
+
+        .blog-cards {
+            flex-direction: column;
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            overflow-x: auto;
+            gap: 20px;
+            scroll-snap-type: x mandatory;
+
+            .blog-card {
+                width: 100%;
+                margin-bottom: 20px;
+                min-width: 250px; // Ajusta según el tamaño que quieras
+                flex-shrink: 0;
+                scroll-snap-align: start;
+            }
+        }
+    }
+
+    .footer {
+        display: block;
+        text-align: center;
+
+        .footer-section {
+            margin: 20px 0;
+
+            p {
+                margin: 10px 0;
+            }
+        }
+    }
+
+    .tattoo-services {
+        padding: 0px;
+    }
+}
