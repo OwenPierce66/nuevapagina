@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Navbar from "./navbar/Navbar";
 import Home from "./pages/home/Home";
 import HellsVanity from "./pages/hellsvanity/HellsVanity";
+import Navbar from "./pages/navbar/Navbar";
 
 function App() {
   return (
