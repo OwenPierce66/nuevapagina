@@ -1,9 +1,9 @@
 import React from "react";
 import "./HellsVanity.scss";
-import CenterImage from "../images/tatu4.jpg";
+import CenterImage from "../../images/tatu4.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBars, faHeart, faEye } from "@fortawesome/free-solid-svg-icons";
-import hv from "../images/hv.png";
+import hv from "../../images/hv.png";
 const HellsVanity = () => {
     return (
         <div className="hells-page">
