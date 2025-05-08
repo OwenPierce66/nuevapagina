@@ -1,0 +1,299 @@
+.chat-widget-container {
+    position: fixed; // Stay in place
+    bottom: 20px; // Adjust as needed
+    right: 20px; // Adjust as needed
+    z-index: 1000; // Ensure it's on top of other content
+    font-family: Arial, sans-serif; // Or your preferred font
+}
+
+.chat-icon-button {
+    width: 66px; // Size of the circular icon
+    height: 66px;
+    border-radius: 50%; // Make it round
+    background-color: #2d5661; // Match your theme color
+    color: white; // Icon color
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Add a shadow
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8em; // Size of the icon character
+    transition: transform 0.3s ease-in-out; // Optional animation
+
+    &:hover {
+        transform: scale(1.1); // Scale up slightly on hover
+    }
+}
+
+.chat-window {
+    width: 333px;
+    height: 460px; // Height of the chat window (adjust as needed)
+    background-color: #f9f9f9;
+    border-radius: 33px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; // Hide overflow content
+}
+
+.chat-header {
+    background-color: #ffffff; // White header background
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+
+    border-bottom: 1px solid #eee; // Separator line
+    position: relative; // Needed for absolute positioning of close button
+
+    h3 {
+        margin: 0;
+        font-size: 1em;
+        // color: #2d5661;
+        font-weight: 100;
+        font-family: serif;
+        color: black;
+        flex-grow: 1; // Allow title to take available space
+    }
+
+    .formulario-contacto {
+        background-color: #fff;
+        border-radius: 20px;
+        padding: 20px;
+        margin-top: 15px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        font-family: 'Arial', sans-serif;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .formulario-contacto p {
+        font-size: 0.9em;
+        color: #333;
+        margin-bottom: 0;
+    }
+
+    .formulario-contacto input {
+        border: none;
+        border-bottom: 1px solid #aaa;
+        padding: 10px 5px;
+        font-size: 1em;
+        outline: none;
+        background-color: transparent;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+            border-bottom: 1px solid #2d5661;
+        }
+    }
+
+    .formulario-contacto button {
+        background-color: black;
+        color: white;
+        border: none;
+        padding: 12px;
+        font-size: 1em;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #333;
+        }
+    }
+
+    .status-indicator {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-left: 5px;
+        margin-right: 5px;
+
+        &.online {
+            background-color: #4CAF50; // Green dot
+        }
+
+        // Add other statuses like offline, busy etc.
+    }
+
+    .header-status {
+        font-size: 0.8em;
+        color: #777;
+        margin-right: auto; // Pushes close button to the right
+    }
+
+
+    .close-button {
+        background: none;
+        border: none;
+        font-size: 1.5em;
+        color: #777; // Color of the close button
+        cursor: pointer;
+        padding: 0 5px;
+        position: absolute; // Position absolutely
+        top: 50%;
+        right: 10px; // Adjust as needed
+        transform: translateY(-50%); // Vertically center
+
+        &:hover {
+            color: #333;
+        }
+    }
+}
+
+
+.formulario-contacto {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formulario-contacto p {
+    font-size: 0.9em;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.formulario-contacto input {
+    border: none;
+    border-bottom: 1px solid #aaa;
+    padding: 10px 5px;
+    font-size: 1em;
+    outline: none;
+    background-color: transparent;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+        border-bottom: 1px solid #2d5661;
+    }
+}
+
+.formulario-contacto button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1em;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #333;
+    }
+}
+
+
+.chat-body {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #e9e9eb;
+    display: flex;
+    flex-direction: column;
+
+    .message {
+        margin-bottom: 10px;
+        padding: 10px 15px;
+        border-radius: 15px;
+        max-width: 80%;
+        word-wrap: break-word;
+        font-size: 0.95em;
+        line-height: 1.4;
+        display: inline-block;
+
+        &.user {
+            background-color: #2d5661; // color oscuro para el usuario
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+            border-bottom-right-radius: 0;
+        }
+
+        &.bot {
+            background-color: #ffffff; // color claro para el bot
+            color: #333;
+            align-self: flex-start;
+            margin-right: auto;
+            border-bottom-left-radius: 0;
+        }
+    }
+
+}
+
+
+.igual {
+    position: absolute;
+    color: #2d5661;
+}
+
+.chat-input-area {
+    padding: 10px 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+
+    input[type="text"] {
+        flex-grow: 1; // Permite que el input ocupe el espacio restante
+        border: none;
+        padding: 8px;
+        // margin-right: 5px;
+        font-size: 1em;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .input-icon {
+        font-size: 1.3em;
+        color: #919eab;
+        cursor: pointer;
+        margin-left: 5px; // Espacio antes de los íconos de span
+        margin-right: 5px; // Espacio después de los íconos de span
+
+        &:hover {
+            color: #333;
+        }
+
+        // Si usas íconos <ion-icon> directamente, no necesitas un <img> dentro
+        // Si usaras <img> para estos, necesitarías estilos para ellos también
+    }
+
+    .send-button {
+        // background-color: #2d5661;
+        // position: absolute;
+        color: white;
+        border: none;
+        padding: 5px 0px;
+        margin-top: -5px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em; // Afecta el tamaño de fuente si pones texto, no el SVG
+        margin-left: 5px; // Espacio antes del botón de envío
+
+        display: flex; // Para centrar el ícono SVG
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background-color: darken(#2d5661, 10%);
+        }
+
+        // Estilos para el ícono SVG dentro del botón
+        img.send-icon-svg {
+            width: 20px; // Ajusta el tamaño del SVG
+            height: auto;
+            display: block; // Asegura que ocupe su espacio correctamente en el flex
+        }
+    }
+}

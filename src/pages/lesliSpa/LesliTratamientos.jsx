@@ -10,18 +10,14 @@ import masajecabello from "../../images/masajecabello.webp";
 import shiatsu from "../../images/shiatsu.png";
 import NavbarLesli from './Navbarlesli';
 import PiePaginaLesli from './PiePaginaLesli';
-// Importa ambos componentes de modal
-import SummaryModal from "./modals/SummaryModal"; // Asegúrate de que la ruta sea correcta
-import AddServiceModal from "./modals/AddServiceModal"; // Asegúrate de que la ruta sea correcta
+import SummaryModal from "./modals/SummaryModal";
+import AddServiceModal from "./modals/AddServiceModal";
 
 const LesliTratamientos = () => {
     const [categoriaActiva, setCategoriaActiva] = useState("Todos");
-    // Estado para controlar la visibilidad de cada modal
     const [isSummaryModalOpen, setIsSummaryModalOpen] = useState(false);
     const [isAddServiceModalOpen, setIsAddServiceModalOpen] = useState(false);
-    // Estado para almacenar los servicios seleccionados para la cita
     const [selectedServicesInQuote, setSelectedServicesInQuote] = useState([]);
-
 
     const servicios = [
         {
@@ -86,53 +82,48 @@ const LesliTratamientos = () => {
         ? servicios
         : servicios.filter(serv => serv.categoria === categoriaActiva);
 
-    // Función para abrir el Modal de Resumen con el primer servicio
     const handleReservarClick = (service) => {
-        setSelectedServicesInQuote([service]); // Empieza la cita con este servicio
+        setSelectedServicesInQuote([service]);
         setIsSummaryModalOpen(true);
-        setIsAddServiceModalOpen(false); // Asegúrate de que el otro modal esté cerrado
+        setIsAddServiceModalOpen(false);
     };
 
-    // Función llamada desde SummaryModal para abrir el Modal de Agregar Servicio
     const handleAddServiceClick = () => {
-        setIsSummaryModalOpen(false); // Cierra el modal de resumen
-        setIsAddServiceModalOpen(true); // Abre el modal de agregar servicio
+        setIsSummaryModalOpen(false);
+        setIsAddServiceModalOpen(true);
     };
 
-    // Función llamada desde AddServiceModal cuando se selecciona un servicio
     const handleServiceSelectInAddModal = (service) => {
-        // Añade el nuevo servicio a la lista existente (evita duplicados si es necesario)
-        // Simple adición:
-        setSelectedServicesInQuote(prevServices => [...prevServices, service]);
-        // Lógica para volver al modal de resumen después de seleccionar
+        setSelectedServicesInQuote(prevServices => {
+            const newServices = [...prevServices, service];
+            return newServices;
+        });
         setIsAddServiceModalOpen(false);
         setIsSummaryModalOpen(true);
     };
 
-    // Función para cerrar ambos modales (puede ser llamada por la 'x' de cualquier modal o el overlay)
     const handleCloseAllModals = () => {
         setIsSummaryModalOpen(false);
         setIsAddServiceModalOpen(false);
-        // Opcional: limpiar selectedServicesInQuote si cierras la cita
-        // setSelectedServicesInQuote([]);
     };
 
-    // Función llamada desde AddServiceModal para volver al SummaryModal
     const handleBackToSummary = () => {
         setIsAddServiceModalOpen(false);
         setIsSummaryModalOpen(true);
     };
-
 
     return (
         <div>
             <div><NavbarLesli /></div>
 
             <section className="tratamientos-section">
-                {/* ... (resto del contenido de la sección tratamientos) ... */}
                 <h2 className="tratamientos-title">TRATAMIENTOS</h2>
-                <p className="tratamientos-text">...</p>
-                <p className="tratamientos-text">...</p>
+                <p className="tratamientos-text">Descubre una experiencia de relajación y bienestar única en Lesli Spa.
+                    Nuestros tratamientos están diseñados para revitalizar tu cuerpo y mente, utilizando técnicas
+                    ancestrales y productos naturales de la más alta calidad.</p>
+                <p className="tratamientos-text">Sumérgete en un ambiente de tranquilidad y déjate consentir por
+                    nuestro equipo de expertos terapeutas, quienes te brindarán un servicio personalizado y
+                    atento a tus necesidades.</p>
 
                 <div className="tratamientos-buttons">
                     {["Todos", "Masajes", "Exfoliaciones", "Tratamientos corporales"].map((cat) => (
@@ -148,7 +139,6 @@ const LesliTratamientos = () => {
             </section>
 
             <div className='separar'>
-                {/* Muestra los servicios filtrados */}
                 {serviciosFiltrados.map((servicio, index) => (
                     <div className="servicio-item" key={index}>
                         <img src={servicio.imagen} alt={servicio.titulo} />
@@ -158,7 +148,6 @@ const LesliTratamientos = () => {
                             <hr />
                             <p className="duracion">{servicio.duracion}</p>
                             <p className="precio">{servicio.precio}</p>
-                            {/* Llama a handleReservarClick para iniciar el proceso */}
                             <button
                                 className="reservar-btn"
                                 onClick={() => handleReservarClick(servicio)}
@@ -172,24 +161,22 @@ const LesliTratamientos = () => {
 
             <div><PiePaginaLesli /></div>
 
-            {/* Renderiza el Modal de Resumen si isSummaryModalOpen es true */}
             {isSummaryModalOpen && (
                 <SummaryModal
                     isOpen={isSummaryModalOpen}
-                    onClose={handleCloseAllModals} // Cerrar ambos modales
-                    onAddServiceClick={handleAddServiceClick} // Abre el modal de agregar
-                    servicesInQuote={selectedServicesInQuote} // Pasa los servicios seleccionados
+                    onClose={handleCloseAllModals}
+                    onAddServiceClick={handleAddServiceClick}
+                    servicesInQuote={selectedServicesInQuote}
                 />
             )}
 
-            {/* Renderiza el Modal de Agregar Servicio si isAddServiceModalOpen es true */}
             {isAddServiceModalOpen && (
                 <AddServiceModal
                     isOpen={isAddServiceModalOpen}
-                    onClose={handleCloseAllModals} // Cerrar ambos modales
-                    onServiceSelect={handleServiceSelectInAddModal} // Maneja la selección y vuelve al resumen
-                    onBack={handleBackToSummary} // Vuelve al resumen
-                    allServices={servicios} // Pasa la lista completa de servicios para mostrar
+                    onClose={handleCloseAllModals}
+                    onServiceSelect={handleServiceSelectInAddModal}
+                    onBack={handleBackToSummary}
+                    allServices={servicios}
                 />
             )}
         </div>

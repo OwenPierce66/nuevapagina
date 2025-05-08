@@ -1,0 +1,809 @@
+.booking-page {
+    padding: 40px;
+    font-family: 'Arial', sans-serif;
+    background-color: #fdfdfd;
+    color: #2d5661;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .header {
+        width: 1116px;
+
+        .separar-titulos {
+            display: flex;
+
+            .texto-titulo {
+                font-size: 1.1em;
+                font-weight: 100;
+                margin-right: 10px;
+                font-family: auto;
+            }
+
+            .timezone-info {
+                font-size: .8em;
+                color: #1e1e1e;
+                margin-left: 165px;
+                margin-top: 5px;
+
+            }
+
+            .texto-reserva {
+                font-size: 1.1em;
+                font-weight: 100;
+                margin-left: 87px;
+                font-family: auto;
+                margin-bottom: 3px;
+                margin-top: -25px;
+            }
+        }
+
+    }
+
+    h1 {
+        font-size: 2em; // Aumenta un poco el tamaño
+        margin-bottom: 5px;
+        font-family: auto;
+        font-weight: 100;
+    }
+
+    p {
+        margin-bottom: 55px;
+        font-size: 0.9em;
+        color: #1e1e1e;
+    }
+
+    .back-button {
+        background: none;
+        border: none;
+        color: #2d5661;
+        font-size: 1em;
+        cursor: pointer;
+        margin-bottom: 20px;
+        padding: 0;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+
+
+    .booking-grid {
+        display: flex;
+        // justify-content: space-between;
+        align-items: flex-start;
+        gap: 50px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .calendar-section {
+        border-top: 1px solid #ccc;
+        padding-top: 20px;
+        display: flex;
+        width: 55%;
+
+        label {
+            display: block;
+            color: #1e1e1e;
+            font-size: .9em;
+            margin-bottom: 16px;
+            font-weight: 100;
+        }
+
+        .calendar-container {
+
+            .react-calendar-custom {
+                box-shadow: none;
+            }
+
+            // width: 80%;
+            font-size: .8em;
+
+            .calendar-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 10px;
+
+
+
+                button {
+                    background: none;
+                    border: none;
+                    font-size: 1.5em;
+                    color: #2d5661;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: 10%;
+                    }
+                }
+
+                span {
+                    font-size: 1.2em;
+                    font-weight: bold;
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+
+
+        .calendar-info {
+            padding: 0px 0 0 33px;
+            width: 116%;
+
+            .proximasesiondisponible {
+                display: block;
+                margin: 30px auto 0;
+                width: 100%;
+                padding: 10px 30px;
+                background-color: #2d5661 !important;
+                color: white;
+                border: none;
+                border-radius: 0px;
+                cursor: pointer;
+                min-width: 200px;
+                font-size: .9em;
+
+                &:hover {
+                    background-color: #2d5661;
+                }
+            }
+        }
+
+        .timezone-info {
+            font-size: 0.9em;
+            color: #1e1e1e;
+            margin: 10px 0;
+        }
+
+        .time-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .show-more-sessions {
+            margin-top: 10px;
+            background-color: none !important;
+            text-align: center;
+
+            .show-more-button {
+                background: none;
+                border: none;
+                color: #2d5661;
+                cursor: pointer;
+                font-size: 0.8em;
+                padding: 0;
+                text-decoration: underline;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .time-slot {
+            border: 1px solid #2d5661;
+            border-radius: 0;
+            font-size: 0.9em;
+            padding: 9px 16px;
+            width: 48%;
+            text-align: center;
+            background-color: white;
+            color: #2d5661;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &.selected {
+                background-color: #2d5661;
+                color: white;
+            }
+
+            &:hover {
+                background-color: #f0f0f0;
+            }
+        }
+
+
+    }
+
+    .summary-section {
+        border-left: none;
+        padding-left: 0;
+        margin-top: -30px;
+        // width: 50%;
+
+        .texto-reserva {
+            margin-bottom: 6px;
+            font-family: AUTO;
+        }
+
+        .summary-header {
+            border-top: 1px solid #ccc;
+            margin-top: 9px;
+            padding-top: 16px;
+
+            .summary-separar {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 10px;
+
+                .edit-link {
+                    background-color: none !important;
+                    background: none;
+                    border: none;
+                    color: #2d5661;
+                    cursor: pointer;
+                    font-size: 0.9em;
+                    margin-left: 6px;
+                    padding: 0;
+                    text-decoration: underline;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+
+                    .separar-editar {
+                        display: flex;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            border-left: none;
+            border-top: 1px solid #ccc;
+            padding-left: 0;
+            padding-top: 20px;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #2d5661;
+        }
+
+        p {
+            margin: 5px 0;
+            color: #1e1e1e;
+        }
+
+        .summary-service-item {
+            // margin-bottom: 15px;
+            // border-bottom: 1px dashed #eee;
+            // padding-bottom: 10px;
+            font-weight: 100;
+
+            &:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            p {
+                margin: 3px 0;
+            }
+        }
+
+        .summary-date,
+        .summary-time {
+            // font-weight: bold;
+            // color: #2d5661;
+            margin-top: 10px;
+        }
+
+        .editar-botones {
+            .edit-link {
+                background: none;
+                border: none;
+                color: #2d5661;
+                cursor: pointer;
+                font-size: 0.9em;
+                padding: 0;
+                text-decoration: underline;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .confirm-btn {
+                display: block;
+                margin: 30px auto 0;
+                width: 100%;
+                padding: 10px 30px;
+                background-color: #2d5661 !important;
+                color: white;
+                border: none;
+                border-radius: 0px;
+                cursor: pointer;
+                min-width: 200px;
+                font-size: .9em;
+
+                &:hover {
+                    background-color: #2d5661;
+                }
+
+                &.disabled {
+                    background-color: gray !important;
+                    /* Cambia el color de fondo a gris */
+                    color: lightgray !important;
+                    /* Cambia el color del texto a gris claro */
+                    cursor: not-allowed;
+                    /* Cambia el cursor para indicar que no se puede hacer clic */
+                }
+            }
+        }
+
+    }
+}
+
+.react-calendar-custom {
+    border: none !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    width: 100% !important;
+    max-width: 300px;
+    background-color: #fff;
+
+    .react-calendar__navigation {
+        display: none; // Hide default navigation since we added custom arrows
+    }
+
+    .react-calendar__month-view__weekdays {
+        text-align: center;
+        text-transform: lowercase;
+        font-weight: bold;
+        font-size: 0.8em;
+        color: #555;
+        margin-bottom: 10px;
+
+        div {
+            abbr {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .react-calendar__month-view__days {
+        .react-calendar__tile {
+            text-align: center;
+            padding: 10px 5px;
+            background: none !important;
+            border-radius: 0;
+            color: #333;
+            font-size: 1em;
+            font-weight: normal;
+
+            &:hover {
+                background-color: #f0f0f0 !important;
+            }
+
+            &:disabled {
+                color: #ccc;
+            }
+        }
+
+        .react-calendar__tile--active {
+            background-color: #2d5661 !important;
+            color: white !important;
+            font-weight: bold;
+            // border-radius: 50%;
+            padding: 10px !important;
+
+            abbr {
+                color: white !important;
+            }
+        }
+
+        .react-calendar__tile--now {
+            background-color: #e0e0e0 !important;
+            color: #333;
+            font-weight: bold;
+
+            abbr {
+                color: #333;
+            }
+        }
+
+        .react-calendar__tile--now.react-calendar__tile--active {
+            background-color: #2d5661 !important;
+            color: white !important;
+
+            abbr {
+                color: white !important;
+            }
+        }
+
+        .react-calendar__month-view__days__day--neighboringMonth {
+            color: #aaa;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .booking-page {
+            padding: 20px;
+            flex-direction: column;
+            /* Cambia a columna */
+            align-items: stretch;
+            /* Asegura que los elementos ocupen todo el ancho */
+        }
+
+        .header {
+            width: 100%;
+            /* Asegura que el encabezado ocupe todo el ancho */
+        }
+
+        .separar-titulos {
+            flex-direction: column;
+            /* Cambia a columna */
+            align-items: flex-start;
+            /* Alinea los elementos al inicio */
+            gap: 10px;
+            /* Espacio entre los elementos */
+        }
+
+        .booking-grid {
+            flex-direction: column;
+            /* Cambia a columna */
+            gap: 20px;
+            /* Espacio entre las secciones */
+        }
+
+        .calendar-section {
+            width: 100%;
+            /* Asegura que el calendario ocupe todo el ancho */
+            padding: 0;
+            /* Elimina el padding extra */
+        }
+
+        .calendar-info {
+            width: 100%;
+            /* Ajusta el ancho */
+            padding: 0;
+
+            /* Elimina el padding extra */
+            .proximasesiondisponible {
+                display: block;
+                margin: 30px auto 0;
+                width: 100%;
+                padding: 10px 30px;
+                background-color: #2d5661 !important;
+                color: white;
+                border: none;
+                border-radius: 0px;
+                cursor: pointer;
+                min-width: 200px;
+                font-size: .9em;
+
+                &:hover {
+                    background-color: #2d5661;
+                }
+            }
+        }
+
+        .summary-section {
+            // width: 100%;
+            /* Asegura que el resumen ocupe todo el ancho */
+            padding: 0;
+            /* Elimina el padding extra */
+            border-left: none;
+            /* Elimina el borde izquierdo */
+            border-top: 1px solid #ccc;
+            /* Agrega un borde superior */
+            margin-top: 20px;
+            /* Espacio entre el calendario y el resumen */
+        }
+
+        .form-summary {
+            padding-top: -33px;
+        }
+
+
+        .editar-botones {
+            flex-direction: column;
+            /* Cambia a columna */
+            align-items: stretch;
+            /* Asegura que los botones ocupen todo el ancho */
+            gap: 10px;
+            /* Espacio entre los botones */
+
+            .edit-link,
+            .confirm-btn {
+                width: 100%;
+                /* Asegura que los botones ocupen todo el ancho */
+                text-align: center;
+                /* Centra el texto */
+            }
+        }
+
+        .react-calendar-custom {
+            max-width: 100%;
+            /* Asegura que el calendario ocupe todo el ancho */
+        }
+    }
+}
+
+.booking-form-view {
+    padding: 5rem;
+    background-color: #ffffff;
+    max-width: 1200px;
+    margin: 2rem auto;
+    border-radius: 10px;
+    color: black;
+
+    // box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+
+    .back-button {
+        background: none;
+        border: none;
+        color: #2d5661;
+        font-size: .9rem;
+        cursor: pointer;
+        margin-bottom: 1rem;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    h1 {
+        font-size: 2rem;
+        // margin-bottom: 2rem;
+        color: black;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        // gap: 2rem;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .client-details-section,
+    .summary-section {
+        // background-color: #f9f9f9;
+        padding: 3rem;
+        padding-left: 0;
+        border-radius: 8px;
+        // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .client-details-section {
+        .quitarborder {
+            margin-bottom: 1rem;
+            color: #2d5661;
+            font-size: 1.1rem;
+            font-family: auto;
+            font-weight: 100;
+            border-bottom: none;
+
+        }
+    }
+
+    .client-details-section h3,
+    .summary-section h3 {
+        margin-bottom: 1rem;
+        color: #2d5661;
+        font-size: 1.1rem;
+        font-family: auto;
+        font-weight: 100;
+        border-bottom: 1px solid #2d566184;
+        // border-bottom: 1px solid #2d5661;
+        // border-bottom-color: rgb(var(--wix-ui-tpa-divider-main-divider-color, var(--wix-color-37)));
+        // border-bottom-style: solid;
+        // border-width: 0 0 var(--wix-ui-tpa-divider-main-divider-width, 1px) 0;
+        // max-width: 100%;
+
+    }
+
+    .login-prompt {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        background-color: #f2f2f2;
+        padding: 16px;
+
+        a {
+            color: black;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .form-separar {
+        display: flex;
+        // flex-direction: row;
+        gap: 1rem;
+    }
+
+
+    .form-group {
+        width: 100%;
+        margin-bottom: 1.2rem;
+
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+
+            font-size: .9rem;
+            color: #222222;
+            font-weight: 100;
+        }
+
+        .PhoneInputCountry {
+            position: absolute;
+            // margin-left: -32px;
+            padding-left: 9px;
+            padding-top: 12px;
+            font-size: .8em;
+            // margin-bottom: -6px;
+        }
+
+        .inputs2 {
+            width: 100%;
+            // padding: 9px;
+            // border: 1px solid black;
+            font-size: 1rem;
+            box-sizing: border-box;
+            // padding-left: 34px;
+
+            &:focus {
+                // border-color: #007bff;
+                border-color: black;
+                outline: none;
+            }
+
+            input {
+                width: 100%;
+
+                border: none !important;
+                text-decoration: none;
+                padding: 10px;
+                padding-left: 42px;
+                border: 1px solid black !important;
+
+                &:focus {
+                    border: none !important;
+                    text-decoration: none;
+
+                }
+
+            }
+
+            .PhoneInputInput {
+
+                &:focus {
+                    border: none !important;
+                    border-color: green;
+                    text-decoration: none;
+                }
+            }
+
+        }
+
+        .inputs {
+            width: 100%;
+            margin-left: 0px;
+            padding-left: 0px;
+            padding: 9px;
+            border: 1px solid black;
+            font-size: 1rem;
+            // padding-left: 50px;
+            box-sizing: border-box;
+
+            &:focus {
+                border-color: #007bff;
+                outline: none;
+            }
+        }
+
+
+        textarea {
+            padding: 0.75rem;
+            width: 100%;
+            padding: 9px;
+            border: 1px solid black;
+            font-size: 1rem;
+            box-sizing: border-box;
+
+            &:focus {
+                border-color: #007bff;
+                outline: none;
+
+            }
+        }
+
+        &.full-width {
+            grid-column: span 2;
+        }
+    }
+
+    .form-actions {
+        text-align: right;
+
+        .confirm-btn {
+            display: block;
+            margin: 30px auto 0;
+            width: 100%;
+            padding: 10px 30px;
+            background-color: #2d5661 !important;
+            color: white;
+            border: none;
+            border-radius: 0px;
+            cursor: pointer;
+            min-width: 200px;
+            font-size: .9em;
+
+            &:hover {
+                background-color: #2d5661;
+            }
+
+            &.disabled {
+                background-color: gray !important;
+                /* Cambia el color de fondo a gris */
+                color: lightgray !important;
+                /* Cambia el color del texto a gris claro */
+                cursor: not-allowed;
+                /* Cambia el cursor para indicar que no se puede hacer clic */
+            }
+        }
+    }
+
+    .form-summary {
+        p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .summary-service-item {
+            // border-bottom: 1px solid #ddd;
+            // padding: 0.5rem 0;
+        }
+
+        .summary-datetime {
+            margin-top: 1rem;
+            font-weight: 100;
+            color: #333;
+        }
+
+        .payment-summary {
+            margin-top: 2rem;
+
+            h3 {
+                margin-bottom: 1rem;
+            }
+
+            p {
+                display: flex;
+                justify-content: space-between;
+                font-weight: 100;
+
+                span {
+                    font-weight: 100;
+                }
+            }
+        }
+
+        .notification-text {
+            font-size: 0.85rem;
+            color: #1a1a1a;
+            margin-top: 1.5rem;
+        }
+    }
+}

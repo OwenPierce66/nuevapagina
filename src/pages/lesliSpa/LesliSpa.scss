@@ -1,139 +1,1000 @@
-/* SCSS for ImageBackground Component */
-
-.background-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background: url('./path-to-background-image.png') no-repeat center center;
-    background-size: cover;
+.scroll-button-container {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: #fff;
-    font-family: Arial, sans-serif;
-}
-
-.header {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo img {
-    height: 40px;
-}
-
-.logo span {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-}
-
-.logo p {
-    font-size: 0.9rem;
-    margin: 0;
-    color: #555;
-}
-
-.menu {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.menu ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.menu li {
-    margin: 0 10px;
-}
-
-.menu a {
-    text-decoration: none;
-    font-size: 1rem;
-    color: #333;
-}
-
-.menu a:hover {
-    color: #007BFF;
-}
-
-.cart-icon {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    color: #333;
-}
-
-.cart-icon img {
-    height: 20px;
-}
-
-.cart-icon span {
-    font-size: 1rem;
-}
-
-.content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
+    border: 1px solid #2d5661;
+    border-radius: 33px;
+    height: 50px;
+    width: 50px;
+    font-weight: 100;
+    font-size: 55px !important;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 
-.scroll-indicator {
-    margin-bottom: 20px;
-}
-
-.scroll-indicator img {
-    height: 20px;
-}
-
-.image img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-.image {
-    position: relative;
-    width: 100%;
-    height: auto;
-
-    /* Contenedor con gradiente */
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-        z-index: 1;
+    .arrow-down {
+        font-size: 55px;
+        margin-top: 9px;
+        font-weight: 100 !important;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: color 0.3s ease, transform 0.3s ease-in-out;
     }
 
-    img {
+    &:hover {
+        background: #2d5661; // Fondo cambia al color deseado
+        color: #ffffff; // Color de la flecha al hacer hover
+
+        .arrow-down {
+            color: #ffffff; // Cambia color del ícono dentro
+            transform: translateY(5px); // Efecto de desplazamiento
+        }
+    }
+}
+
+
+
+.serenidad {
+    text-align: center;
+    font-family: "Times New Roman", serif;
+    color: #2d5661;
+    background: #ffffff;
+    background-color: #fbfbfb;
+
+    // HEADER
+    .serenidad-header {
+        display: flex;
+        align-items: center;
+        padding: 33px 22px; // Ajuste de espaciado
+        border-bottom: 1px solid #ddd;
+        border-bottom: transparent;
+        justify-content: space-between;
+        margin: 0 0 -33px;
+
+        .logo-text-lesli {
+            // margin-top: 5px;
+            font-weight: 100;
+        }
+
+        .logo {
+            display: flex;
+            // flex-direction: column;
+            align-items: flex-start;
+
+            .titulos {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                margin-top: 9px;
+            }
+
+
+
+            .logo-circulo {
+                width: 55px; // Ajusta el tamaño del círculo
+                height: 55px;
+                margin: 5px;
+                background-image: url("../../images/logoblanco.png"); // Ruta de la imagen
+                background-size: contain; // Ajusta la imagen sin recortar
+                background-position: center;
+                background-repeat: no-repeat;
+                border-radius: 50%; // Hace el fondo en forma de círculo
+            }
+
+
+            &-text {
+                font-size: 19px;
+                font-weight: 100;
+                margin-bottom: -6px;
+                margin-top: 11px;
+                color: #2d5661;
+            }
+
+            .subtitle {
+                font-size: 13px;
+                color: #2d5661;
+                font-family: sans-serif !important;
+            }
+        }
+
+        .menu-lesli {
+            display: flex;
+            align-items: center;
+            gap: 40px; // Separa los elementos del menú
+            font-size: 16px;
+            font-size: .8em;
+            font-weight: 100;
+            color: rgb(var(--txt, var(--color_15, color_15)));
+            font-family: sans-serif !important;
+
+            a {
+                text-decoration: none;
+                color: black;
+
+                font-weight: 500;
+                transition: color 0.3s ease-in-out;
+
+                &:hover {
+                    color: #2D5661; // Efecto hover
+                }
+            }
+
+            .user-icon,
+            .cart-icon {
+                font-size: 22px;
+                color: #2d5661;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                cursor: pointer;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: #d0e0e0; // Un tono más claro que blanco puro, suave
+                }
+            }
+
+            .cart-icon {
+                position: relative;
+
+                span {
+                    position: absolute;
+                    top: -5px;
+                    right: -10px;
+                    background: #2d5661;
+                    color: white;
+                    font-size: 12px;
+                    width: 18px;
+                    height: 18px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+
+    // MAIN con efecto Parallax
+    &-main {
+        margin-top: 146px;
         position: relative;
-        z-index: 0;
-        /* Asegúrate de que la imagen esté detrás del gradiente */
-        max-width: 100%;
-        height: auto;
-        display: block;
+        height: 66vh;
+        width: 100%;
+        background: url("../../images/granserenidad.png") no-repeat center center;
+        background-size: cover;
+        transition: transform 0.2s ease-out;
+
+        .background-overlay {
+            // padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px;
+            height: 693px;
+            text-align: center;
+
+            .subir {
+                display: flex;
+                flex-direction: column;
+                margin-top: -116px;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 100;
+            // text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .arrow-down {
+            font-size: 50px;
+            border: none;
+        }
     }
+
+    // SECCIÓN TRANQUILIDAD con animación de aparición
+    .serenidadHome {
+        display: grid;
+        grid-template-columns: 30% 40%; // Imagen a la derecha en escritorio
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        width: 100%;
+        grid-gap: 120px;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+
+        &.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cosas {
+            margin-top: 202px;
+        }
+
+        .cosas2 {
+
+            // margin-top: 222px;
+            img {
+                width: 808px;
+            }
+        }
+
+        &-image {
+            position: absolute;
+            margin-left: -444px;
+            margin-top: 111px;
+
+        }
+
+        &-text {
+            // text-align: left;
+            padding: 39px;
+            // margin-top: 202px;
+            margin-top: -555px;
+
+            h2 {
+                font-size: 39px;
+                font-weight: 100;
+                color: #2d5661;
+            }
+
+            p {
+                font-size: 14px;
+                color: #555;
+                line-height: 1.5;
+            }
+
+            .circle {
+                position: absolute;
+                width: 160px;
+                height: 160px;
+                border: 1px solid #2d5661;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                margin-top: 69px;
+                margin-left: 116px;
+                cursor: pointer;
+                transition: background 0.3s ease-in-out, color 0.3s ease-in-out, border 0.3s ease-in-out;
+
+                &:hover {
+                    background: #2d5661;
+                    color: #ffffff;
+                    border: 1px solid #2d5661;
+                }
+            }
+        }
+    }
+
+    .tranquilidad {
+        display: grid;
+        grid-template-columns: 30% 40%; // Imagen a la derecha en escritorio
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        width: 100%;
+        grid-gap: 120px;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+
+        &.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cosas {
+            margin-top: 202px;
+        }
+
+        .cosas2 {
+            margin-top: -33px;
+        }
+
+        &-image {
+            width: 100%;
+            // max-width: 500px;
+            justify-self: center;
+        }
+
+        &-text {
+            padding: 39px;
+            margin-top: 202px;
+
+            h2 {
+                font-size: 39px;
+                font-weight: 100;
+                color: #2d5661;
+            }
+
+            p {
+                font-size: 14px;
+                color: #555;
+                line-height: 1.5;
+            }
+
+            .circle {
+                position: absolute;
+                width: 160px;
+                height: 160px;
+                border: 1px solid #2d5661;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                margin-top: 69px;
+                margin-left: 116px;
+                cursor: pointer;
+                transition: background 0.3s ease-in-out, color 0.3s ease-in-out, border 0.3s ease-in-out;
+
+                &:hover {
+                    background: #2d5661;
+                    color: #ffffff;
+                    border: 1px solid #2d5661;
+                }
+            }
+        }
+    }
+
+    // https://www.facebook.com/reel/640568292092603/?s=single_unit&__cft__[0]=AZXlbDafbVxMhkTvYIEy_619O44ySdu83R_t3qo1TlKbsiM6AH0SjQn-e5XZF3s3T007BHiK6CS-f6RR3TSot6Sn7-HfkzsFQYlmhVf11m68HEL1kHqTdcwGCPKS9fwS4XvQhWRSy886E2gaTXLcyb1nSR88t4Fj2Cdwj0yd-PpebIckkwqEDffwOvUt97MmMgM&__tn__=H-R
+
+    // 📱 MODO TELÉFONO
+    // Estilos para móvil
+    // 📱 MODO TELÉFONO
+    .pacifico {
+        text-align: center;
+        background: #ffffff;
+        padding: 110px 10%;
+
+        .pacifico-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            /* Cambiado de `end` a `flex-end` */
+            text-align: right;
+            /* Asegura que el texto también esté alineado */
+            margin-left: auto;
+            /* Empuja el contenido a la derecha */
+            margin-right: 0;
+            margin-top: 33px;
+            margin-bottom: 99px;
+            color: #2d5661;
+
+            .uno {
+                font-size: 50px;
+                font-weight: 400;
+                letter-spacing: 1px;
+            }
+
+            p {
+                font-size: 16px;
+                width: 461px;
+                color: #555;
+                line-height: 1.6;
+            }
+        }
+
+        .pacifico-content {
+            display: flex;
+            align-items: start;
+            justify-content: center;
+            gap: 40px;
+
+            .pacifico-image {
+                // width: 333px;
+                // height: 450px;
+                object-fit: cover;
+                // border-radius: 8px;
+            }
+
+            .circle-button {
+                width: 160px;
+                height: 160px;
+                border: 1px solid #2d5661;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                color: #2d5661;
+                font-family: sans-serif !important;
+                margin-left: 160px;
+
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    background: #2d5661;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+
+
+    .elcactus {
+        background: url("../../images/cactus.png") no-repeat center center;
+        /* Usa la ruta de tu imagen */
+        background-size: cover;
+        /* Hace que la imagen cubra todo el contenedor */
+        background-position: center;
+        /* Centra la imagen */
+        background-repeat: no-repeat;
+        /* Evita que la imagen se repita */
+        width: 80%;
+        /* Ajusta el ancho */
+        min-height: 500px;
+        /* Ajusta la altura según sea necesario */
+        display: flex;
+        align-items: center;
+        /* Centra el contenido verticalmente */
+        justify-content: flex-start;
+        /* Alinea el contenido a la izquierda */
+        padding: 50px 10%;
+        display: flex;
+        background-color: #f4f4f4;
+        /* Fondo similar al diseño */
+        margin-top: 369px;
+        padding: 22px 22px;
+        /* Espaciado interno */
+        text-align: center;
+        font-family: 'Times New Roman', serif;
+        color: #333;
+        /* Color de texto principal */
+        margin-left: auto;
+        /* Esto empuja la sección hacia la derecha */
+        margin-right: 0;
+        /* Asegura que no haya margen a la derecha */
+
+    }
+
+    .elcactuspadding {
+        max-width: 960px;
+        /* Ancho máximo del contenido */
+        // margin: 0 auto;
+        padding: 90px;
+        /* Centrar el contenido */
+    }
+
+    .elcactusText {
+        font-size: 2.5em;
+        /* Tamaño del título "HORARIO LABORAL" */
+        color: #2d5661;
+        /* Color del título */
+        margin-bottom: 40px;
+        text-align: left;
+    }
+
+    .informacion {
+        display: flex;
+        justify-content: flex-start;
+        /* Centrar los bloques de información */
+        gap: 60px;
+        /* Espacio entre los bloques de día/hora */
+    }
+
+    .lunesviernes,
+    div {
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+    }
+
+    .dia {
+        font-size: 1.5em;
+        margin-bottom: 8px;
+        color: #2d5661;
+
+    }
+
+    .hora {
+        font-size: 1.2em;
+        color: #555;
+
+        font-weight: bold;
+    }
+
+    .dia,
+    .hora {
+        text-align: left;
+    }
+
+
+    .ubication {
+        text-align: center;
+        background: #ffffff;
+        padding: 80px 10%;
+
+        .ubicationPadding {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            /* Espaciado entre elementos */
+        }
+
+        .ubicationText {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 700px;
+            /* Ancho máximo para el texto */
+            margin-bottom: 55px;
+
+            .ubicationTitle {
+                font-size: 50px;
+                /* Título grande */
+                color: #2d5661;
+                /* Verde */
+                margin-bottom: 22px;
+            }
+
+            .ubicationParrafo {
+                font-size: 14px;
+
+                /* Texto más pequeño */
+                color: #404040;
+                line-height: 1.6;
+                max-width: 600px;
+                font-family: sans-serif;
+            }
+        }
+
+        .imagenesJuntas {
+            display: flex;
+            gap: 22px;
+            /* Espaciado entre imágenes */
+            justify-content: center;
+            /* Centrar imágenes */
+
+            img {
+                width: 575px;
+                /* Ancho fijo */
+                height: auto;
+                /* Bordes redondeados opcionales */
+                // box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+                /* Sombra ligera */
+            }
+        }
+    }
+
+    .footer {
+        background-color: #2d5661; // Color azul oscuro del fondo
+        color: white;
+        padding: 50px 10%;
+        font-family: 'Times New Roman', serif;
+        text-align: left;
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            text-align: left;
+
+            .footer-logo {
+                text-align: center;
+                max-width: 250px;
+                object-fit: cover;
+                text-align: left;
+
+                .footer-icon {
+                    width: 60px;
+                    height: auto;
+                    margin-bottom: 10px;
+                }
+
+                h2 {
+                    font-size: 33px;
+                    font-weight: 100;
+                    text-align: center;
+                    line-height: 1.3;
+                    text-align: left;
+
+                }
+            }
+
+            .footer-menu,
+            .footer-social,
+            .footer-contact {
+                h3 {
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin-bottom: 15px;
+                }
+
+                ul {
+                    list-style: none;
+                    padding: 0;
+
+                    li {
+                        font-size: 16px;
+                        margin-bottom: 8px;
+                        cursor: pointer;
+                    }
+                }
+
+                p {
+                    font-size: 16px;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 20px;
+            font-size: 14px;
+
+            a {
+                color: white;
+                text-decoration: none;
+                margin-left: 15px;
+            }
+        }
+
+        // Responsive
+        @media screen and (max-width: 1024px) {}
+    }
+
+
+    /* Responsivo */
+    @media screen and (max-width: 1200px) {}
+
+
+    /* Estilos responsivos */
+    @media (max-width: 768px) {
+        .informacion {
+            flex-direction: column;
+            /* Apilar los bloques en pantallas pequeñas */
+            gap: 30px;
+        }
+
+        .lunesviernes,
+        div {
+            align-items: center;
+            /* Centrar el texto en bloques apilados */
+        }
+
+        .imagenesJuntas {
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+
+            img {
+                width: 90%;
+                /* Se ajusta en pantallas más pequeñas */
+            }
+        }
+
+        .footer-container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            flex-direction: column;
+            text-align: center;
+
+            .footer-links {
+                margin-top: 10px;
+            }
+        }
+
+        .ubication {
+            padding: 0;
+
+            .imagenesJuntas {
+                img {
+                    width: 100%;
+                }
+            }
+
+            .ubicationText {
+                .ubicationParrafo {
+                    font-size: 16px;
+                    color: black;
+                    font-weight: 100;
+                }
+            }
+        }
+    }
+
+
+    @media screen and (max-width: 768px) {
+
+        .ubication {
+            padding: 0;
+
+            .imagenesJuntas {
+                img {
+                    width: 100%;
+                }
+            }
+
+            .ubicationText {
+                margin: 55px 33px 16px;
+
+                .ubicationTitle {
+                    font-size: 36px;
+                }
+
+                .ubicationParrafo {
+                    font-size: 16px;
+                    color: black;
+                }
+            }
+        }
+
+
+        .serenidadHome {
+            display: grid; // Mantenemos Grid
+            grid-template-columns: 1fr; // Una sola columna
+            gap: 25px; // Espacio entre filas (elementos)
+            // padding: 40px 5%;
+            justify-content: center; // Centrar el grid si no ocupa todo el ancho
+            align-items: center; // Centrar items horizontalmente por defecto
+
+            // === La Magia ===
+            // Hacemos que los contenedores intermedios "desaparezcan" para el grid padre
+            .serenidadHome-text,
+            .cosas,
+            .cosas2 {
+                display: contents; // ¡Importante!
+            }
+
+            // === Ordenamiento Explícito con Grid Rows ===
+            // Ahora podemos tratar a h2, p, circle, img(spa4), img(perfume)
+            // como si fueran hijos directos del grid .serenidadHome
+            h2 {
+                grid-row: 1; // Título en la primera fila
+                text-align: center;
+                font-size: 33px; // Ajustar tamaño móvil
+                padding: 33px 16px 0 16px;
+            }
+
+            .serenidadHome-image2 {
+                // Imagen Perfume
+                grid-row: 2; // Perfume en la segunda fila
+                width: 100%; // Ajustar tamaño móvil
+                max-width: 100vw;
+                margin: 0 auto; // Centrar
+            }
+
+            p {
+                grid-row: 3; // Párrafo en la tercera fila
+                text-align: center;
+                font-size: 16px; // Ajustar tamaño móvil
+                padding: 16px 33px 0;
+                color: black;
+            }
+
+            .circle {
+                // Botón
+                grid-row: 4; // Círculo en la cuarta fila
+                width: 140px; // Ajustar tamaño móvil
+                height: 140px;
+                font-size: 13px;
+                margin: 0 auto -444px 0; // Centrar y dar espacio vertical
+                justify-self: center; // Asegurar centrado en la celda del grid
+            }
+
+            .serenidadHome-image {
+                // Imagen Spa4
+                position: static;
+                grid-row: 5; // Imagen spa4 en la quinta fila
+                width: 66%; // Ajustar tamaño móvil
+                max-width: 300px;
+                margin: 0 auto; // Centrar
+            }
+
+            // Resetear estilos de contenedores que ahora son 'contents' si es necesario
+            // (por ejemplo, si tenían padding o márgenes propios que ahora no aplican bien)
+            .serenidadHome-text,
+            .cosas,
+            .cosas2 {
+                padding: 0;
+                margin: 0;
+            }
+
+            .serenidadHome-text {}
+
+        }
+
+        .menu-icon {
+            // display: none !important;
+        }
+
+        .pacifico-content {
+            flex-direction: column;
+            gap: 20px;
+
+            .pacifico-image {
+                width: 100%;
+                height: auto;
+            }
+
+            .circle-button {
+                margin: -66px 0 0 0;
+                margin-left: 101px !important;
+            }
+        }
+
+        .pacifico {
+            padding: 116px 0 0 0;
+
+            .pacifico-text {
+                text-align: center;
+                margin-top: 0;
+                margin-bottom: 16px;
+
+                p {
+                    width: auto;
+                }
+
+                .uno {
+                    font-size: 36px;
+                }
+            }
+        }
+
+        .serenidad-header {
+            padding: 16px 16px; // Ajuste de espaciado
+
+        }
+
+        .menu-icon {
+            display: flex;
+            margin-top: -16px;
+            margin-left: 33px;
+            font-size: 33px;
+            cursor: pointer;
+
+            .iconShop {
+                margin-right: 9px;
+            }
+
+            .iconBars {
+                font-weight: 100;
+
+            }
+        }
+
+        // Ocultar el menú por defecto
+        .menu-lesli {
+            display: none !important;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        // Mostrar el menú cuando tenga la clase "open"
+        .menu-lesli.open {
+            display: flex;
+        }
+
+        .menu-lesli a {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+
+            &:hover {
+                background: #f4f4f4;
+            }
+        }
+
+        // Mostrar el menú cuando se haga clic en el ícono
+        .menu-lesli.open {
+            display: flex;
+        }
+
+        // Sección Tranquilidad en móvil
+        .tranquilidad {
+            grid-template-columns: 100%;
+            text-align: center;
+
+
+
+            .tranquilidad-image {
+                order: -1; // Mueve la imagen arriba en móviles
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            .tranquilidad-text {
+                order: 1;
+                margin-top: -160px;
+
+                .circle {
+                    margin-top: 288px !important;
+                    margin-left: 69px !important;
+                }
+            }
+
+            .cosas {
+                margin-top: 33px;
+            }
+
+
+        }
+
+        .elcactus {
+
+            padding: 0;
+            display: flex;
+            align-items: center;
+            background: none;
+            margin: 160px 0 0;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .elcactuspadding {
+            padding: 0;
+        }
+
+        .elcactusText {
+            text-align: center;
+            font-size: 2.2em;
+        }
+
+        .imagenfon {
+            .cactusmododofon {
+                width: 100vw;
+
+            }
+        }
+
+
+        .footer {
+            background-color: #2d5661; // Color azul oscuro del fondo
+            color: white;
+            padding: 50px 10%;
+            font-family: 'Times New Roman', serif;
+            text-align: left;
+
+            .footer-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                text-align: left;
+
+                .footer-logo {
+                    display: flex;
+                    gap: 33px;
+                }
+            }
+        }
+
+
+    }
+}
+
+
+@media (min-width: 769px) {
+    .menu-icon {
+        display: none;
+    }
+
+
 }

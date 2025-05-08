@@ -1,0 +1,547 @@
+.contacto-container {
+    // color: #2d5661; // Color base, si lo quieres aplicar a todo el contenedor
+
+    // Estilos para pantallas grandes (por defecto)
+    .dividir {
+        display: flex;
+        justify-content: center; // Centra el  y la imagen horizontalmente
+        gap: 160px; // Añade espacio entre el  y la imagen
+        align-items: flex-start; // Alinea los elementos al inicio
+        padding: 0 0px 0 222px; // Añade un poco de padding a los lados en desktop
+    }
+
+    .contacto-intro {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 0 auto;
+        padding: 3rem 20px; // Ajusta padding para tener espacio en los lados
+        box-sizing: border-box; // Incluye padding en el ancho total
+
+        h2 {
+            color: #2d5661;
+            font-size: 3em;
+            font-weight: 100;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+        }
+
+        .minimizar {
+            padding: 0; // Elimina el padding fijo aquí
+        }
+
+        p {
+            font-size: .8rem;
+            line-height: 1.6;
+            color: #1e1e1e;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .formulario {
+        text-align: left;
+        max-width: 400px; // Mantiene un ancho máximo en desktop
+        width: 100%; // Ocupa el ancho disponible dentro de .dividir
+        padding: 55px 0; // Elimina padding fijo aquí, usar el del contenedor si es necesario
+        border-radius: 8px;
+        margin: 0; // Elimina margin fijo aquí, el espacio lo da el gap en .dividir
+        font-weight: 100;
+
+
+        .titulo-contacto {
+            font-size: 2rem;
+            color: #2d5661;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+            font-weight: 100;
+            line-height: 1.2;
+            text-align: left;
+            margin: 55px 0px;
+        }
+
+        label {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2d5661;
+            font-family: 'serif';
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-bottom: 1px solid #2d5661;
+            font-size: 0.9rem;
+            box-sizing: border-box;
+
+            &:focus {
+                outline: none;
+                border-bottom: 2px solid #2d5661;
+            }
+        }
+
+        textarea {
+            min-height: 100px;
+        }
+
+        button[type="submit"] {
+            width: 160px;
+            height: 160px;
+            border: 1px solid #2d5661;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .9rem;
+            color: #2d5661;
+            background-color: transparent;
+            font-family: sans-serif !important;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            margin: 2rem auto 0 auto; // Centrado horizontalmente
+            text-align: center;
+
+            &:hover {
+                background-color: #2d5661;
+                color: white;
+            }
+        }
+    }
+
+    .imagen-contacto {
+        // En desktop, ajustamos el ancho para que quepa junto al 
+        // max-width: 500px; 
+        width: 100%; // Ocupa el ancho disponible
+        position: relative; // Contenedor relativo para la imagen
+        margin-top: 77px; // Alinea la parte superior con el título del 
+
+        img {
+            // position: absolute; // Elimina la posición absoluta por defecto
+            width: 100%; // La imagen ocupa el 100% de su contenedor
+            height: auto; // Mantiene la proporción
+            display: block; // Elimina el espacio extra debajo de la imagen
+            // Si quieres la imagen posicionada de forma absoluta en desktop,
+            // debes manejarlo con cuidado y resetearlo en mobile.
+            // Por ahora, la hacemos responsive por defecto.
+            position: static; // Aseguramos que no tenga posicionamiento absoluto por defecto
+        }
+    }
+
+    .imagen-contacto-abajo {
+        text-align: center; // Centra la imagen si su contenedor es más grande
+        margin-top: 2rem; // Espacio después del botón
+
+        img {
+            padding-top: 90px;
+            max-width: 100%; // Asegura que la imagen no se desborde
+            height: auto; // Mantiene la proporción
+        }
+    }
+
+
+    /* INICIO: Estilos para la Nueva Sección de Diseño */
+    .new-design-section {
+        margin: 60px auto; // Centra la sección y añade espacio arriba/abajo
+        box-sizing: border-box;
+        font-family: math; // Considera usar una fuente más común como Arial, sans-serif, etc.
+
+
+        .new-design-header {
+            font-size: 3em;
+            color: #2d5661;
+            font-weight: 100;
+            margin: 0 0 3rem 194px; // Espacio debajo del encabezado
+        }
+
+        .new-design-layout {
+            width: 100%;
+            display: flex;
+            align-items: center; // Alinea verticalmente los elementos
+            margin-left: 160px;
+            gap: 40px; // Espacio entre la imagen y los datos
+
+            // Estilos para pantallas grandes (por defecto)
+            // flex-direction: row;
+
+
+            @media (max-width: 768px) {
+                flex-direction: column; // Apila en pantallas pequeñas
+                align-items: stretch; // Permite que los hijos ocupen el ancho completo
+            }
+        }
+
+        .new-design-image-container {
+            // flex: 1; 
+            max-width: 75%; // Ajusta el ancho máximo en desktop
+
+            @media (max-width: 768px) {
+                max-width: 100%; // Ocupa todo el ancho en mobile
+            }
+        }
+
+        .new-design-image {
+            width: 100%; // La imagen ocupa el 100% de su contenedor
+            height: auto;
+            display: block;
+        }
+
+        .new-design-data-container {
+            margin-left: 222px;
+            flex: 1; // Permite que el contenedor de datos crezca y se encoja
+            margin: 0; // Elimina el margen fijo
+            padding: 20px; // Añade padding dentro del contenedor de datos
+            box-sizing: border-box;
+
+            @media (max-width: 768px) {
+                padding: 0; // Ajusta padding en mobile si es necesario
+            }
+        }
+
+        .new-design-data-title {
+            font-size: 1.9em;
+            margin-bottom: 20px;
+            color: #2d5661;
+            font-weight: 100;
+            text-align: center; // Centra el título de Datos en mobile
+
+            @media (min-width: 769px) {
+                text-align: left; // Alinea a la izquierda en desktop
+            }
+        }
+
+        .new-design-data-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .new-design-data-item {
+            margin: 50px 0; // Reduce el margen entre items para móviles
+            line-height: 1.5;
+            color: #2d5661;
+            text-align: center; // Centra el contenido de los items en mobile
+
+            @media (min-width: 769px) {
+                text-align: left; // Alinea a la izquierda en desktop
+            }
+
+
+            .new-design-data-label {
+                font-weight: 100;
+                display: block;
+                margin-bottom: 5px;
+                font-size: 22px;
+            }
+
+            .cosas {
+                font-family: system-ui;
+                font-weight: 100 !important;
+
+                color: black !important;
+            }
+        }
+    }
+
+    /* FIN: Estilos para la Nueva Sección de Diseño */
+
+    .mapa {
+        margin-top: 4rem; // Espacio antes del mapa
+        padding: 0 20px; // Padding lateral
+    }
+
+
+    /* Media Query para Teléfonos (menos de 768px) */
+    @media (max-width: 768px) {
+        // No necesitas flex-direction: column aquí si ya está en .dividir
+        // flex-direction: column;
+        padding: 0;
+
+        .dividir {
+            flex-direction: column; // Apila el  y la imagen principal
+            gap: 0rem; // Reduce el espacio entre ellos
+            padding: 0 0;
+        }
+
+        .contacto-intro {
+            padding: 2rem 15px; // Ajusta padding
+            margin-bottom: 2rem; // Ajusta margen
+        }
+
+        .formulario {
+            margin: 0 auto 0 auto; // Centra el 
+            max-width: 82%; // Permite que ocupe casi todo el ancho
+            padding: 0 0; // Añade padding interno si es necesario
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            label {
+                font-size: 1.3em;
+            }
+
+            .titulo-contacto {
+                // Reduce el tamaño del título del 
+                text-align: center; // Centra el título del 
+                font-size: 2.2rem;
+            }
+
+        }
+
+
+        .imagen-contacto {
+            // Centra la imagen de abajo
+            // Asegura que no tenga posicionamiento absoluto
+            width: 100%;
+            margin-top: 0;
+
+            img {
+                height: 420px !important;
+                object-fit: cover !important;
+                object-position: 50% 50% !important;
+            }
+        }
+
+        .imagen-contacto-abajo {
+            margin-top: 1rem; // Reduce el margen
+
+            img {
+                padding-top: 30px; // Reduce el padding superior
+                max-width: 95%; // Ajusta el tamaño de la imagen de abajo
+                margin: 0 auto;
+            }
+        }
+
+
+
+        .new-design-header {
+            font-size: 2.2em !important; // Reduce el tamaño del encabezado
+            margin: 77px 0 50px 0 !important;
+            text-align: center;
+        }
+
+        .new-design-data-container {
+            padding: 15px; // Ajusta padding
+        }
+
+        .new-design-data-title {
+            font-size: 2.5em !important; // Reduce el tamaño del título de datos
+            margin-bottom: 15px;
+        }
+
+        .new-design-data-item {
+            text-align: center; // Centra los items de datos
+
+            margin: 36px 0 !important; // Reduce el margen entre items
+
+            .new-design-data-label {
+                font-size: 22px; // Ajusta el tamaño de la etiqueta
+            }
+        }
+
+        .mapa {
+            margin-top: 2rem; // Reduce el margen antes del mapa
+            padding: 0 15px; // Ajusta padding
+        }
+    }
+
+    /* Media Query para Teléfonos muy pequeños (menos de 480px) */
+    @media (max-width: 480px) {
+        padding: 0 0px; // Ajusta el padding general del contenedor
+
+        .contacto-intro {
+            padding: 1rem 16px; // Ajusta padding
+
+            h2 {
+                margin: 22px 0;
+                font-size: 2.3em;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+        }
+
+
+
+
+        .titulo-contacto {
+            font-size: 1.5rem; // Reduce aún más el tamaño del título del 
+        }
+
+        .new-design-section {
+            padding: 0 0; // Ajusta padding
+        }
+
+
+
+
+
+    }
+}
+
+/* Elimina estas reglas duplicadas */
+/*
+@media (max-width: 768px) {
+    flex-direction: column; // Esta regla está en el lugar incorrecto
+
+
+    .imagen-contacto {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    padding: 1rem; // Esta regla está en el lugar incorrecto
+
+  
+
+    .titulo-contacto {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+}
+*/
+
+/* INICIO: Estilos para la Nueva Sección de Diseño (Mantén esta sección, pero revisa los estilos base) */
+.new-design-section {
+    // Estilos que se aplican por defecto (escritorio)
+    // margin: -60px 160px; // Reemplazado por margin: 60px auto; y padding
+    font-family: math; // Considera usar una fuente más común
+    color: #2d5661; // Color general para esta sección
+
+
+
+
+    .new-design-layout {
+        display: flex;
+        // justify-content: center; // Si quieres centrar el bloque completo horizontalmente
+        gap: 40px; // Espacio entre la imagen y los datos
+        align-items: flex-start; // Alinea los elementos al inicio
+    }
+
+    .new-design-image-container {
+        flex-basis: 50%; // La imagen intenta ocupar el 50% del espacio disponible
+        flex-shrink: 0; // Evita que la imagen se encoja más de lo necesario
+    }
+
+    .new-design-image {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .new-design-data-container {
+        flex-basis: 50%; // Los datos intentan ocupar el 50% del espacio disponible
+        flex-shrink: 0;
+        // margin: 0 77px; // Reemplazado por el gap en .new-design-layout y padding interno
+        padding: 20px; // Añade padding interno
+        box-sizing: border-box;
+    }
+
+    .new-design-data-title {
+        font-size: 2.2em;
+        margin-bottom: 20px;
+        font-weight: 100;
+        text-align: left; // Alinea a la izquierda por defecto en desktop
+    }
+
+    .new-design-data-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .new-design-data-item {
+        line-height: 1.5;
+
+
+        .new-design-data-label {
+            font-weight: 100;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 22px;
+        }
+
+
+        .cosas {
+            font-family: system-ui; // Considera usar una fuente más común
+            font-weight: 100 !important;
+            font-size: 17px !important;
+            color: black !important;
+        }
+
+    }
+
+
+    /* Media Query para Teléfonos (menos de 768px) - Secciones apiladas */
+    @media (max-width: 768px) {
+        .contacto-container {
+            padding: 0 10px;
+
+
+            // Asegúrate de anidar correctamente dentro de .contacto-container
+            .dividir {
+                flex-direction: column; // Esto ya lo tienes
+                gap: 0;
+                padding: 0 0 !important;
+
+                // Agrega las reglas 'order' aquí para cambiar el orden en mobile
+                .formulario {
+                    order: 1 !important;
+                    /* El  aparecerá después */
+                    margin: 0 auto 0 auto; // Centra el 
+                    max-width: 100%; // Permite que ocupe casi todo el ancho
+                }
+
+                .imagen-contacto {
+                    order: -1 !important;
+                    /* La imagen aparecerá antes (cualquier número menor que el del ) */
+                    max-width: 100%; // Ajusta el ancho máximo
+                    margin: 0 auto; // Centra la imagen
+                    margin-top: 2rem; // Espacio después de la imagen apilada (que ahora va primero)
+                    position: static; // Asegura que no tenga posicionamiento absoluto
+
+
+                }
+            }
+
+            .new-design-layout {
+                flex-direction: column; // Apila la imagen y los datos
+                gap: 20px; // Reduce el espacio entre ellos
+                margin-left: 0px;
+
+            }
+
+            .new-design-image-container {
+                flex-basis: auto; // Autoajusta el tamaño
+                max-width: 80%; // Ancho máximo en mobile
+                margin: 0 auto; // Centra la imagen
+            }
+
+            .new-design-data-container {
+                flex-basis: auto; // Autoajusta el tamaño
+                padding: 0; // Elimina padding interno en mobile
+                text-align: center; // Centra el contenido de los datos
+            }
+
+
+
+
+
+        }
+    }
+
+    /* Media Query para Teléfonos muy pequeños (menos de 480px) */
+    @media (max-width: 480px) {
+        .new-design-image-container {
+            max-width: 100%; // Permite que la imagen ocupe todo el ancho
+        }
+    }
+}

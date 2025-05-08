@@ -18,7 +18,7 @@ const HellsVanity = () => {
                         <h1 className="welcome-title">
                             Bienvenidos
                             <span className="line-break-mobile">a</span>
-                            Hells Vanity co
+                            Hells Vanity
                         </h1>
 
                         <p className="subtitle">Expertos en Arte Corporal</p>

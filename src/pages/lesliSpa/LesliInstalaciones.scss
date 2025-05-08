@@ -1,0 +1,146 @@
+.zigzag-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    padding: 7rem;
+}
+
+.texto-dearriba {
+    text-align: center;
+    max-width: 800px;
+    margin: 6rem auto 0 auto;
+    color: black;
+
+    .texto-titulo {
+        font-size: 3rem;
+        color: #2d5661;
+        font-family: serif;
+        margin-bottom: 1rem;
+        font-weight: 100;
+    }
+
+    .texto-parrafo {
+        font-family: sans-serif;
+        font-size: 0.8rem;
+        color: black;
+        margin-bottom: 1rem;
+        padding: 16px;
+        line-height: 1.6;
+    }
+}
+
+
+.seccion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px; // puedes ajustar esto según tus imágenes
+    width: 100%;
+
+    &.reversa {
+        flex-direction: row-reverse;
+
+        .texto {
+            margin-left: -16px; // Acerca el texto hacia la imagen cuando está a la izquierda
+        }
+    }
+
+    &:not(.reversa) {
+        .texto {
+            margin-right: -16px; // Acerca el texto hacia la imagen cuando está a la derecha
+        }
+    }
+
+    .texto {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &-titulo {
+            font-size: 2.2rem;
+            color: #2d5661;
+            margin-bottom: 1rem;
+            font-family: none;
+            text-align: center;
+        }
+
+        &-parrafo {
+            text-align: center;
+            font-size: .9rem;
+            line-height: 1.5;
+            color: black;
+            max-width: 333px;
+        }
+    }
+
+    .imagen {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 88%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .seccion {
+        flex-direction: column !important; // Todo en columna: texto arriba, imagen abajo
+
+        .texto {
+            width: 100%; // Que el texto ocupe todo
+            padding: 9px 0rem; // Un poco de margen horizontal
+            margin: 0;
+            margin-right: 0 !important;
+        }
+
+        .texto-titulo {
+            margin: 9px;
+        }
+
+        .texto-parrafo {
+            margin: 9px;
+        }
+
+
+        .imagen {
+            width: 100%; // Imagen al 100%
+            margin-top: 1rem;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    .zigzag-container {
+        padding: 3rem 0rem; // Reduce el padding general para móvil
+        gap: 3rem; // Menor separación entre secciones
+    }
+
+    .texto-dearriba {
+        padding: 0 1rem;
+        margin: 3rem auto 1rem auto;
+
+        .texto-titulo {
+            font-size: 2.2rem;
+        }
+
+        .texto-parrafo {
+            font-size: 0.9rem;
+        }
+    }
+
+    .seccion {
+        .texto-titulo {
+            font-size: 1.6rem;
+        }
+    }
+}

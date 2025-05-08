@@ -35,7 +35,16 @@ const Navbar = () => {
         { name: "Testing", route: "/testing" },
         { name: "HellsVanity", route: "/hellsvanity" },
         { name: "OtroHellsVanity", route: "/otrohellsvanity" },
-        { name: "LesliSpa", route: "/leslispa" },
+        {
+            name: "LesliSpa", route: "/leslispa",
+            options: [
+                { name: "Acerca de", route: "/leslispa/acercade" },
+                { name: "Instalaciones", route: "/leslispa/instalaciones" },
+                { name: "Tratamientos", route: "/leslispa/tratamientos" },
+                { name: "Tienda", route: "/leslispa/tienda" },
+                { name: "Contacto", route: "/leslispa/contacto" },
+            ],
+        },
     ];
 
     return (

@@ -1,0 +1,534 @@
+// Estilos Base Originales (para pantallas de escritorio - NO MODIFICADOS)
+.acerca-de-container {
+    // Añadido padding lateral y box-sizing para consistencia, puedes ajustarlo si interfiere
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: relative; // Asegura que z-index funcione si es necesario
+
+    .centrar {
+        margin-left: 170px; // Estilo original
+    }
+
+    .acerca-de-intro {
+        text-align: left; // Estilo original
+        margin-bottom: 3rem;
+
+        h2 {
+            color: rgb(45 87 99);
+            font-size: 2.8em;
+            font-weight: 100;
+            margin: 33px 22px; // Estilo original
+            font-family: auto;
+        }
+    }
+
+    .acerca-de-content-layout {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 3rem;
+    }
+
+    .acerca-de-image {
+        flex: 1;
+        max-width: 60%;
+
+        img {
+            height: 533px; // Estilo original
+            display: block;
+        }
+    }
+
+    .acerca-de-text-content {
+        flex: 1;
+        max-width: 40%;
+        color: black;
+        line-height: 1.6;
+
+        .minimizar {
+            margin: 16px 240px auto -130px; // Estilo original
+        }
+
+        p {
+            font-size: .8rem;
+            margin-bottom: 1rem;
+        }
+
+        .acerca-de-circle {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #2d5661;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 3rem auto 0 -130px; // Estilo original
+            font-size: 0.9rem;
+            color: #2d5661;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                background-color: #2d5661;
+                color: white;
+            }
+        }
+    }
+
+    .sticky-wrapper {
+        // height: 100vh; // Definiremos la altura en sticky-element
+        position: relative;
+        z-index: 0;
+        // Ajusta este margen si es necesario para que el fondo ocupe todo el ancho
+        margin: 0 -20px; // Compensa el padding del .
+    }
+
+    .sticky-element {
+        position: sticky;
+        top: 0;
+        height: 100vh; // Altura fija para desktop
+        background-image: url('../../images/piscina.png'); // Imagen de fondo para desktop
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: -1; // Detrás del contenido normal
+
+        // Oculta la imagen interna por defecto (en desktop)
+        img.sticky-mobile-image {
+            display: none;
+        }
+    }
+
+    .testimonios-container {
+        position: relative;
+        z-index: 1; // Asegura que el contenido de testimonios esté sobre la imagen sticky
+        padding: 4rem 0;
+
+        .testimonios-title {
+            text-align: center;
+            color: #2d5661;
+            font-size: 3em;
+            font-weight: 100;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 6rem;
+        }
+
+        .testimonios-layout {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonios-carousel {
+            flex: 1;
+            max-width: 50%;
+            position: relative;
+            margin-left: 33px; // Estilo original
+            width: 333px; // Estilo original (puede ser fijo)
+            color: #2d5661;
+            text-align: center;
+
+            .cosas {
+                width: 360px; // Estilo original
+                margin: 0 200px; // Estilo original
+            }
+
+            .testimonial-slider {
+                overflow: hidden;
+                width: 100%;
+                position: relative;
+            }
+
+            .testimonial-track {
+                display: flex;
+                transition: transform 0.6s ease-in-out;
+                width: 100%;
+            }
+
+            .testimonial-slide {
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding: 1rem;
+                box-sizing: border-box;
+                text-align: center;
+            }
+
+            .carousel-arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 2em;
+                color: #2d5661;
+                cursor: pointer;
+                user-select: none;
+                z-index: 1;
+                font-weight: 100;
+
+                &.left-arrow {
+                    left: 160px; // Estilo original
+                }
+
+                &.right-arrow {
+                    right: 200px; // Estilo original
+                }
+
+                &:hover {
+                    color: #2d5661 // color: darken(#2d5661, 15%);;
+                }
+            }
+
+            .testimonial-content {
+                min-height: 150px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .testimonial-text {
+                font-size: 1.2rem;
+                font-style: italic;
+                margin-bottom: 1rem;
+                font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+                color: #2d5661;
+            }
+
+            .testimonial-author {
+                font-size: 1rem;
+                font-weight: 100;
+                color: #2d5661;
+            }
+
+            .carousel-pagination {
+                margin-top: 1.5rem;
+                display: flex;
+                justify-content: center;
+                gap: 0.5rem;
+
+                .pagination-dot {
+                    display: inline-block;
+                    width: 10px;
+                    height: 10px;
+                    background-color: #ccc;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+
+                    &.active {
+                        background-color: #2d5661;
+                    }
+
+                    &:hover:not(.active) {
+                        background-color: #999;
+                    }
+                }
+            }
+        }
+
+        .testimonios-image {
+            flex: 1;
+            max-width: 50%;
+
+            img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
+    }
+
+    .mapa {
+        margin-top: 3rem;
+    }
+}
+
+/* Animación keyframes (global) */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+// ============================================
+// Media Queries para Responsive - Agrupadas al final
+// ============================================
+
+/* Tablet y Mobile (menos de 992px) */
+@media (max-width: 992px) {
+    .acerca-de-container {
+        padding: 0;
+
+        .centrar {
+            margin-left: 0;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .acerca-de-intro {
+            text-align: center;
+
+            h2 {
+                font-size: 2.2em;
+                margin: 33px 0;
+            }
+        }
+
+        .acerca-de-content-layout {
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .acerca-de-image {
+            max-width: 90%;
+            order: 1;
+            /* Imagen DESPUÉS del texto en mobile */
+
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+        }
+
+        .acerca-de-text-content {
+            max-width: 90%;
+            padding: 0;
+            order: 2;
+            /* Texto DESPUÉS de la imagen en mobile */
+            text-align: center;
+
+            .minimizar {
+                margin: 0;
+                padding: 0 15px;
+            }
+
+            .acerca-de-circle {
+                margin: 2rem auto 0 auto;
+            }
+        }
+
+        .sticky-wrapper {
+            // Ajusta la compensación de padding lateral
+            margin: 0 0;
+        }
+
+        .sticky-element {
+            background-image: none; // Elimina la imagen de fondo en mobile
+            height: auto; // Permite que la altura se ajuste al contenido (la imagen)
+            position: relative; // Vuelve a posición normal o relativa si es necesario
+
+            // Muestra la imagen interna en mobile
+            img.sticky-mobile-image {
+                display: block;
+                width: 100%; // Asegura que la imagen ocupe todo el ancho
+                height: auto; // Mantiene la proporción
+                object-fit: cover; // Asegura que la imagen cubra el área sin distorsionarse
+            }
+        }
+
+        .testimonios-container {
+            padding: 4rem 0;
+            max-width: 100%; // Permite que ocupe todo el ancho
+            margin: 0 auto; // Centra
+
+            .testimonios-title {
+                font-size: 2.5em;
+                margin-bottom: 4rem;
+            }
+
+
+
+            .testimonios-layout {
+                flex-direction: column;
+
+                gap: 5.5rem; // Reduce el espacio
+
+                .testimonios-carousel {
+                    order: -1;
+                    /* Mantiene el orden */
+                    // ... otros ajustes para el carrusel en 480px ...
+                    padding: 0; // Elimina padding si el contenedor ya tiene padding
+                    margin-left: 0; // Asegura que no tenga margen izquierdo fijo
+
+                    .cosas {
+                        padding: 0 10px;
+                    }
+
+                    .carousel-arrow {
+                        font-size: 1.2em;
+                        padding: 6px;
+                    }
+                }
+
+                .testimonios-image {
+                    order: 1;
+                    /* Mantiene el orden */
+                }
+            }
+
+            .testimonios-carousel {
+                max-width: 100%;
+                width: 100%;
+                padding: 0 1rem;
+
+                .cosas {
+                    width: auto;
+                    margin: 0;
+                    padding: 0 20px;
+                }
+
+                .testimonial-text {
+                    font-size: 1rem;
+                }
+
+                .testimonial-author {
+                    font-size: 0.9rem;
+                }
+
+                .carousel-arrow {
+                    font-size: 1.5em;
+                    padding: 8px;
+                    top: 40%;
+
+                    &.left-arrow {
+                        left: 5px;
+                    }
+
+                    &.right-arrow {
+                        right: 5px;
+                    }
+
+                    background-color: rgba(255, 255, 255, 0.7);
+                    border-radius: 50%;
+                    z-index: 2;
+                }
+            }
+
+            .testimonios-image {
+                max-width: 100%;
+                order: -1;
+                /* Imagen del testimonio ANTES del carrusel en mobile */
+            }
+        }
+
+        .mapa {
+            padding: 0 15px;
+        }
+    }
+}
+
+/* Teléfonos pequeños (menos de 480px) */
+@media (max-width: 480px) {
+    .acerca-de-container {
+        padding: 0;
+        margin: 0 auto -88px;
+
+        .acerca-de-intro {
+            margin-bottom: 2rem;
+
+            h2 {
+                font-size: 2.2em;
+                margin: 44px 0;
+
+            }
+        }
+
+        .acerca-de-content-layout {
+            margin-bottom: -42px;
+            gap: 1.5rem;
+        }
+
+        .acerca-de-image {
+            max-width: 100%;
+            order: 1;
+        }
+
+        .acerca-de-text-content {
+            max-width: 100%;
+            padding: 5px 30px; // Ajusta padding para pantallas muy pequeñas
+            order: 2;
+            text-align: center; // Asegura que el texto esté centrado
+
+            p {
+                font-size: 1rem;
+                font-weight: 100;
+            }
+
+            .minimizar {
+                padding: 0;
+            }
+
+            .acerca-de-circle {
+                width: 170px;
+                height: 170px;
+                font-size: 0.8rem;
+                margin-top: 1.5rem;
+            }
+        }
+
+        .sticky-wrapper {
+            margin: 0 0;
+        }
+
+        .sticky-element {
+            width: 100%;
+
+            // Estilos para la imagen interna en pantallas muy pequeñas
+            img.sticky-mobile-image {
+                // Asegura que ocupe todo el ancho disponible si es necesario
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .testimonios-container {
+            padding: 2rem 0px; // Ajusta padding
+
+            .testimonios-title {
+                font-size: 2.2em;
+                margin-bottom: 3rem;
+            }
+
+
+
+            .testimonios-carousel {
+                padding: 0;
+                margin-left: 0;
+
+                .cosas {
+                    padding: 0 10px;
+                }
+
+                .carousel-arrow {
+                    font-size: 1.2em;
+                    padding: 6px;
+                }
+            }
+
+            .testimonios-image {
+                order: -1;
+            }
+        }
+
+        .mapa {
+            margin-top: 1.5rem;
+            padding: 0 10px;
+        }
+    }
+}
+
+/* Media query para ajustar altura de sticky-element en pantallas > 600px si la altura 100vh causa problemas */
+/* Esta regla parece un poco rara en el original, la mantengo pero revisa si la necesitas */
+@media (min-width: 600px) {
+    .sticky-wrapper {
+        .sticky-element {
+            height: 100vh; // Mantiene 100vh en pantallas de más de 600px
+        }
+    }
+}

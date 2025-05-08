@@ -1,0 +1,191 @@
+.modal-overlay {
+    // Reusa los estilos base del overlay del SummaryModal
+    // Asegúrate de que este archivo SCSS se importe DESPUÉS de SummaryModal.scss o define el overlay en un archivo común
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; // Asegura que esté por encima
+    backdrop-filter: blur(5px);
+}
+
+.modal-content.add-service-modal {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px; // Ajusta según imagen de referencia
+    max-height: 90%;
+    overflow: hidden; // Oculta barras de scroll del propio contenido si usas flex column
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    // Reusa estilos base o ajusta si es necesario para este modal
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    h2 {
+        margin: 0;
+        font-size: 1.4em;
+        color: #333;
+        font-family: serif;
+        font-weight: 100;
+    }
+
+    .close-button {
+        background: none;
+        border: none;
+        font-size: 1.8em;
+        color: #777;
+        cursor: pointer;
+        padding: 0;
+
+        &:hover {
+            color: #333;
+        }
+    }
+}
+
+.modal-body {
+    flex-grow: 1; // Permite que el cuerpo crezca y ocupe el espacio
+    overflow-y: auto; // Añade scroll si la lista de servicios es larga
+    padding-bottom: 15px; // Espacio al final del scroll
+
+    .search-bar {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc; // Borde de la barra de búsqueda
+        border-radius: 5px;
+        padding: 8px 10px;
+        margin-bottom: 20px; // Espacio después de la barra de búsqueda
+
+        input {
+            flex-grow: 1; // Input ocupa la mayor parte del espacio
+            border: none;
+            outline: none; // Quita el outline al enfocar
+            font-size: 1em;
+            padding: 0; // Quita padding extra del input
+            margin-right: 10px; // Espacio entre input e ícono
+        }
+
+        .search-icon {
+            color: #777; // Color del ícono de búsqueda
+        }
+    }
+
+    .service-list-add {
+        // Estilos para el contenedor de la lista de servicios
+    }
+
+    .service-category-group {
+        margin-bottom: 20px; // Espacio entre grupos de categorías
+
+        .category-title {
+            font-size: 1.2em; // Tamaño del título de categoría
+            color: #2d5661; // Color de tu tema
+            margin-bottom: 10px; // Espacio después del título de categoría
+            font-weight: 600;
+            font-family: sans-serif;
+        }
+
+        .service-item-add {
+            display: flex;
+            justify-content: space-between; // Espacio entre info del servicio y flecha
+            align-items: center;
+            padding: 10px 0; // Padding vertical para cada item
+            border-bottom: 1px solid #eee; // Línea separadora entre servicios
+            cursor: pointer;
+            transition: background-color 0.2s ease; // Efecto al pasar el ratón
+
+            &:last-child {
+                border-bottom: none; // No hay borde después del último item de la categoría
+            }
+
+            &:hover {
+                background-color: #f0f0f0; // Color de fondo al pasar el ratón
+            }
+
+            .service-info-add {
+                flex-grow: 1; // Permite que la info del servicio ocupe espacio
+            }
+
+            .service-title-add {
+                margin: 0;
+                font-size: 1em; // Tamaño del título del servicio
+                color: #333;
+            }
+
+            .service-price-add {
+                margin: 5px 0 0;
+                font-size: 0.9em; // Tamaño del precio
+                color: #555;
+            }
+
+            .select-icon {
+                color: #777; // Color del ícono de flecha
+                font-size: 0.9em; // Tamaño del ícono de flecha
+                margin-left: 10px; // Espacio antes de la flecha
+            }
+        }
+    }
+
+    .no-results {
+        text-align: center;
+        color: #777;
+        font-size: 1em;
+    }
+}
+
+.modal-footer {
+    // Reusa estilos base o ajusta
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    text-align: center;
+
+    .back-button {
+        background: none;
+        border: none;
+        color: #2d5661; // Color de tu tema
+        font-size: 1em;
+        cursor: pointer;
+        padding: 0; // Quita padding extra del botón
+
+        &:hover {
+            text-decoration: underline; // Subraya al pasar el ratón
+        }
+    }
+}
+
+/* Media query para ajustar en pantallas pequeñas */
+@media (max-width: 480px) {
+    .modal-content.add-service-modal {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .modal-body {
+        .search-bar {
+            padding: 6px 8px; // Reduce padding en pantallas pequeñas
+        }
+
+        .service-category-group {
+            margin-bottom: 15px;
+        }
+
+        .service-item-add {
+            padding: 8px 0;
+        }
+    }
+}

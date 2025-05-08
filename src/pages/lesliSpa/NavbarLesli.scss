@@ -1,0 +1,176 @@
+ .serenidad-header {
+     display: flex;
+     align-items: center;
+     padding: 33px 22px; // Ajuste de espaciado
+     border-bottom: 1px solid #ddd;
+     border-bottom: transparent;
+     justify-content: space-between;
+     margin: 0 0 -33px;
+     color: #2D5661;
+
+     .logo {
+         display: flex;
+         // flex-direction: column;
+         align-items: flex-start;
+
+         .titulos {
+             display: flex;
+             flex-direction: column;
+             align-items: flex-start;
+             margin-top: 9px;
+             margin-left: 5px;
+
+             .logo-text-lesli {
+                 font-family: auto;
+                 font-size: 20px;
+                 font-weight: 100;
+             }
+         }
+
+         .logo-circulo {
+             width: 55px; // Ajusta el tamaño del círculo
+             height: 55px;
+             margin: 5px;
+             background-image: url("../../images/logoblanco.png"); // Ruta de la imagen
+             background-size: contain; // Ajusta la imagen sin recortar
+             background-position: center;
+             background-repeat: no-repeat;
+             border-radius: 50%; // Hace el fondo en forma de círculo
+         }
+
+
+         &-text {
+             font-size: 19px;
+             font-weight: 100;
+             margin-bottom: -6px;
+             margin-top: 11px;
+             color: #2d5661;
+         }
+
+         .subtitle {
+             font-size: 13px;
+             color: #2d5661;
+             font-family: sans-serif !important;
+         }
+     }
+
+
+     .menu-icon {
+         display: none;
+         margin-top: -16px;
+         margin-left: 33px;
+         font-size: 33px;
+         cursor: pointer;
+     }
+
+     .menu-lesli {
+         display: flex;
+         align-items: center;
+         gap: 40px; // Separa los elementos del menú
+         font-size: 16px;
+         font-size: .8em;
+         font-weight: 100;
+         color: rgb(var(--txt, var(--color_15, color_15)));
+         font-family: sans-serif !important;
+
+         a {
+             text-decoration: none;
+             color: black;
+
+             font-weight: 500;
+             transition: color 0.3s ease-in-out;
+
+             &:hover {
+                 color: #2D5661; // Efecto hover
+             }
+         }
+
+         .user-icon,
+         .cart-icon {
+             font-size: 22px;
+             color: #2d5661;
+             display: flex;
+             align-items: center;
+             gap: 16px;
+             cursor: pointer;
+             transition: color 0.3s ease;
+
+             &:hover {
+                 color: #d0e0e0; // Un tono más claro que blanco puro, suave
+             }
+         }
+
+         .cart-icon {
+             position: relative;
+
+             span {
+                 position: absolute;
+                 top: -5px;
+                 right: -10px;
+                 background: #2d5661;
+                 color: white;
+                 font-size: 12px;
+                 width: 18px;
+                 height: 18px;
+                 border-radius: 50%;
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+             }
+         }
+     }
+ }
+
+
+ @media screen and (max-width: 768px) {
+     .menu-lesli {
+         display: none !important;
+         flex-direction: column;
+         position: absolute;
+         top: 60px;
+         left: 0;
+         width: 100%;
+         background: white;
+         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+         z-index: 1000;
+     }
+
+     // Mostrar el menú cuando tenga la clase "open"
+     .menu-lesli.open {
+         display: flex;
+     }
+
+     .menu-lesli a {
+         padding: 15px;
+         text-align: center;
+         border-bottom: 1px solid #ddd;
+
+         &:hover {
+             background: #f4f4f4;
+         }
+     }
+
+     // Mostrar el menú cuando se haga clic en el ícono
+     .menu-lesli.open {
+         display: flex;
+     }
+
+     .menu-icon {
+         display: flex !important;
+         margin-top: -16px;
+         margin-left: 33px;
+
+         font-size: 33px;
+         cursor: pointer;
+
+         .iconShop {
+             margin-right: 9px;
+         }
+
+         .iconBars {
+             font-weight: 100;
+
+         }
+     }
+
+ }

@@ -1,0 +1,148 @@
+.tienda-container {
+    padding: 3rem 2rem;
+}
+
+.tienda-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+
+    h2 {
+        font-size: 2.2rem;
+        color: #2d5661;
+        font-family: serif;
+        margin-bottom: 1rem;
+        font-weight: 100;
+    }
+
+    p {
+        font-family: sans-serif;
+        font-weight: 100;
+        font-size: 0.7rem;
+        color: black;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+}
+
+// Ya te pasé antes el estilo de .tienda-horizontal y .producto, por si no lo agregaste:
+.tienda-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 9px;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    // Añade padding a los lados para separar el contenido del borde del scroll
+    /* Ajusta este valor si 2rem es demasiado o muy poco */
+    // padding-right: 2rem;
+    /* Asegúrate de que sea el mismo valor que padding-left */
+
+    // Para evitar que se colapsen los hijos
+    &::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #2d5661;
+        border-radius: 10px;
+    }
+}
+
+.producto {
+    position: relative;
+    width: 316px;
+    min-width: 200px;
+    text-align: center;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    // box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    font-family: math;
+
+    img {
+        width: 100%;
+    }
+
+    .titulo-productos {
+        margin-top: 5px;
+        font-size: 1.3rem;
+        color: #2d5661;
+        font-weight: 100;
+
+    }
+
+    .precio {
+        font-family: arial;
+
+        margin: 0 0 5px 0;
+        color: black;
+    }
+
+    .btn-carrito {
+        width: 100%;
+        border: 1px solid #2d5661;
+        background: none;
+        color: black;
+        padding: 16px 16px;
+        cursor: pointer;
+        font-family: arial;
+
+        transition: all 0.3s ease;
+        border-radius: 20px;
+        font-size: .9em;
+        font-weight: 100;
+
+        &:hover {
+            background-color: #2d5661;
+            color: white;
+        }
+    }
+
+    .destacado {
+        position: absolute;
+        font-weight: 300;
+        font-family: system-ui;
+        top: 16px;
+        left: 16px;
+        font-size: 0.9rem;
+        background-color: #2d5661;
+        color: white;
+        padding: 2px 9px;
+    }
+}
+
+.react-multiple-carousel__arrow--left {
+    display: none;
+}
+
+.react-multiple-carousel__arrow--right {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .producto {
+        .btn-carrito {
+            width: 93%;
+            margin-left: -22px;
+        }
+    }
+
+    .tienda-container {
+        padding: 0 1rem 1.6rem;
+    }
+
+    .tienda-intro {
+
+        h2 {
+            font-size: 2.1rem;
+            margin: 2.2rem 0;
+        }
+
+        p {
+            font-size: 0.9rem;
+            color: #20262e;
+        }
+    }
+}
