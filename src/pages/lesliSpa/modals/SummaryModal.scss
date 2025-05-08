@@ -129,7 +129,8 @@
         width: 100%; // Ocupa todo el ancho disponible
 
         &:hover {
-            background-color: darken(#2d5661, 10%); // Oscurece al pasar el ratón
+            // background-color: darken(#2d5661, 10%);
+            background-color: #2d5661;
         }
     }
 }
