@@ -1,199 +1,241 @@
-import React, { useState } from "react";
-import './LesliTratamientos.scss';
+import React, { useEffect, useState } from "react";
+import "./LesliSpa.scss";
+import logolesli from "../../images/logolesli.png";
+import spa from "../../images/spa.png";
+import spa2 from "../../images/spa2.png";
+import spa3 from "../../images/spa3.png";
+import spa4 from "../../images/spa4.png";
+import spa5 from "../../images/spa5.png";
+import spa6 from "../../images/spa6.png";
+import perfume from "../../images/perfume.png";
 import piedras from "../../images/piedras.png";
-import masajecuello from "../../images/masajecuello.png";
-import masajeacostado from "../../images/masajeacostado.webp";
-import masajesal from "../../images/masajesal.webp";
-import mascarilla from "../../images/mascarilla.webp";
-import masajehidratante from "../../images/masajehidratante.webp";
-import masajecabello from "../../images/masajecabello.webp";
-import shiatsu from "../../images/shiatsu.png";
-import NavbarLesli from './Navbarlesli';
-import PiePaginaLesli from './PiePaginaLesli';
-// Importa ambos componentes de modal
-import SummaryModal from "./modals/SummaryModal"; // Asegúrate de que la ruta sea correcta
-import AddServiceModal from "./modals/AddServiceModal"; // Asegúrate de que la ruta sea correcta
+import agua from "../../images/agua.png";
+import agua2 from "../../images/agua2.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBagShopping, faUser, faBars } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
-const LesliTratamientos = () => {
-    const [categoriaActiva, setCategoriaActiva] = useState("Todos");
-    // Estado para controlar la visibilidad de cada modal
-    const [isSummaryModalOpen, setIsSummaryModalOpen] = useState(false);
-    const [isAddServiceModalOpen, setIsAddServiceModalOpen] = useState(false);
-    // Estado para almacenar los servicios seleccionados para la cita
-    const [selectedServicesInQuote, setSelectedServicesInQuote] = useState([]);
+const LesliSpa = () => {
+    const [scrollY, setScrollY] = useState(0);
+    const [showTranquilidad, setShowTranquilidad] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [showPacifico, setShowPacifico] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
+    const navigate = useNavigate();
 
-    const servicios = [
-        {
-            titulo: "Masaje de piedras calientes",
-            descripcion: "Describe uno de tus servicios en esta área.",
-            duracion: "1 h 30 min",
-            precio: "$850",
-            categoria: "Masajes",
-            imagen: piedras
-        },
-        {
-            titulo: "Masaje de tejido profundo",
-            descripcion: "Describe uno de tus servicios en esta área.",
-            duracion: "1 h",
-            precio: "$875",
-            categoria: "Masajes",
-            imagen: masajecuello
-        },
-        {
-            titulo: "Masaje Shiatsu",
-            descripcion: "Describe uno de tus servicios en esta área.",
-            duracion: "1 h 30 min",
-            precio: "$999",
-            categoria: "Masajes",
-            imagen: shiatsu
-        },
-        {
-            titulo: "Tratamiento de cuerpo entero",
-            descripcion: "Describe uno de tus servicios en esta área.",
-            duracion: "1 h",
-            precio: "$850",
-            categoria: "Exfoliaciones",
-            imagen: masajesal
-        },
-        {
-            titulo: "Mascarilla corporal desintoxicante",
-            descripcion: "Describe uno de tus servicios en esta área.",
-            duracion: "1 h",
-            precio: "$850",
-            categoria: "Tratamientos corporales",
-            imagen: mascarilla
-        },
-        {
-            titulo: "Envoltura corporal hidratante",
-            descripcion: "Describe uno de tus servicios en esta área.",
-            duracion: "45 min",
-            precio: "$670",
-            categoria: "Tratamientos corporales",
-            imagen: masajehidratante
-        },
-        {
-            titulo: "Masaje de cuero cabelludo",
-            descripcion: "Describe uno de tus servicios en esta área.",
-            duracion: "30 min",
-            precio: "$600",
-            categoria: "Tratamientos corporales",
-            imagen: masajecabello
+    const handleNavigateToTratamientos = () => navigate("/leslispa/tratamientos");
+    const handleNavigateTotiendaleslispa = () => navigate("/leslispa/tiendaleslispa");
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 768);
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+            if (window.scrollY > 300) setShowTranquilidad(true);
+            if (window.scrollY > 700) setShowPacifico(true);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    const handleScrollDown = () => {
+        const tranquilidadSection = document.querySelector(".tranquilidad");
+        if (tranquilidadSection) {
+            tranquilidadSection.scrollIntoView({ behavior: "smooth" });
         }
-    ];
-
-    const serviciosFiltrados = categoriaActiva === "Todos"
-        ? servicios
-        : servicios.filter(serv => serv.categoria === categoriaActiva);
-
-    // Función para abrir el Modal de Resumen con el primer servicio
-    const handleReservarClick = (service) => {
-        setSelectedServicesInQuote([service]); // Empieza la cita con este servicio
-        setIsSummaryModalOpen(true);
-        setIsAddServiceModalOpen(false); // Asegúrate de que el otro modal esté cerrado
     };
-
-    // Función llamada desde SummaryModal para abrir el Modal de Agregar Servicio
-    const handleAddServiceClick = () => {
-        setIsSummaryModalOpen(false); // Cierra el modal de resumen
-        setIsAddServiceModalOpen(true); // Abre el modal de agregar servicio
-    };
-
-    // Función llamada desde AddServiceModal cuando se selecciona un servicio
-    const handleServiceSelectInAddModal = (service) => {
-        // Añade el nuevo servicio a la lista existente (evita duplicados si es necesario)
-        // Simple adición:
-        setSelectedServicesInQuote(prevServices => [...prevServices, service]);
-        // Lógica para volver al modal de resumen después de seleccionar
-        setIsAddServiceModalOpen(false);
-        setIsSummaryModalOpen(true);
-    };
-
-    // Función para cerrar ambos modales (puede ser llamada por la 'x' de cualquier modal o el overlay)
-    const handleCloseAllModals = () => {
-        setIsSummaryModalOpen(false);
-        setIsAddServiceModalOpen(false);
-        // Opcional: limpiar selectedServicesInQuote si cierras la cita
-        // setSelectedServicesInQuote([]);
-    };
-
-    // Función llamada desde AddServiceModal para volver al SummaryModal
-    const handleBackToSummary = () => {
-        setIsAddServiceModalOpen(false);
-        setIsSummaryModalOpen(true);
-    };
-
 
     return (
-        <div>
-            <div><NavbarLesli /></div>
+        <div className="serenidad">
+            <header className="serenidad-header">
+                <div className="logo">
+                    <div className="logo-circulo" />
+                    <div className="titulos">
+                        <div className="logo-text">SERENIDAD</div>
+                        <div className="subtitle">Terapia Spa</div>
+                    </div>
+                </div>
 
-            <section className="tratamientos-section">
-                {/* ... (resto del contenido de la sección tratamientos) ... */}
-                <h2 className="tratamientos-title">TRATAMIENTOS</h2>
-                <p className="tratamientos-text">...</p>
-                <p className="tratamientos-text">...</p>
+                <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+                    <div>
+                        <FontAwesomeIcon className="iconShop" icon={faBagShopping} />
+                    </div>
+                    <div className="iconBars">
+                        <FontAwesomeIcon icon={faBars} />
+                    </div>
+                </div>
 
-                <div className="tratamientos-buttons">
-                    {["Todos", "Masajes", "Exfoliaciones", "Tratamientos corporales"].map((cat) => (
-                        <button
-                            key={cat}
-                            className={categoriaActiva === cat ? "active" : ""}
-                            onClick={() => setCategoriaActiva(cat)}
-                        >
-                            {cat}
-                        </button>
-                    ))}
+                <nav className={`menu-lesli ${menuOpen ? "open" : ""}`}>
+                    <a href="/leslispa/acercade">Acerca de</a>
+                    <a href="/leslispa/instalaciones">Instalaciones</a>
+                    <a href="/leslispa/tratamientos">Tratamientos</a>
+                    <a href="/leslispa/tienda">Tienda</a>
+                    <a href="/leslispa/contacto">Contacto</a>
+                    <div className="user-icon">
+                        <FontAwesomeIcon icon={faUser} /> Entrar
+                    </div>
+                    <div className="cart-icon">
+                        <FontAwesomeIcon icon={faBagShopping} />
+                        <span>0</span>
+                    </div>
+                </nav>
+            </header>
+
+            <main className="serenidad-main" style={{ transform: `translateY(${scrollY * 0.3}px)` }}>
+                <div className="background-overlay">
+                    <div className="subir">
+                        <h1>BIENVENIDOS A SERENIDAD</h1>
+                        <div className="scroll-button-container">
+                            <div className="arrow-down" onClick={handleScrollDown}>
+                                V
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <section className={`tranquilidad ${showTranquilidad ? "visible" : ""}`}>
+                <div className="tranquilidad-text">
+                    <h2>TRANQUILIDAD</h2>
+                    <p>
+                        Párrafo. Haz clic aquí para agregar tu propio texto y editar. Aquí puedes contar tu historia
+                        y permitir que tus usuarios sepan más sobre ti.
+                    </p>
+                    <div className="circle" onClick={handleNavigateToTratamientos}>Más información</div>
+                    <div className="cosas">
+                        <img src={piedras} alt="Nueva Imagen" className="tranquilidad-image" />
+                    </div>
+                </div>
+                <div className="cosas2">
+                    <img src={spa} alt="Masaje relajante" className="tranquilidad-image" />
                 </div>
             </section>
 
-            <div className='separar'>
-                {/* Muestra los servicios filtrados */}
-                {serviciosFiltrados.map((servicio, index) => (
-                    <div className="servicio-item" key={index}>
-                        <img src={servicio.imagen} alt={servicio.titulo} />
-                        <div className="servicio-info">
-                            <h3>{servicio.titulo}</h3>
-                            <p>{servicio.descripcion}</p>
-                            <hr />
-                            <p className="duracion">{servicio.duracion}</p>
-                            <p className="precio">{servicio.precio}</p>
-                            {/* Llama a handleReservarClick para iniciar el proceso */}
-                            <button
-                                className="reservar-btn"
-                                onClick={() => handleReservarClick(servicio)}
-                            >
-                                Reservar ahora
-                            </button>
+            <section className={`pacifico ${showPacifico ? "visible" : ""}`}>
+                <div className="pacifico-text">
+                    <div className="uno">UN ENTORNO PACÍFICO</div>
+                    <p>
+                        Párrafo. Haz clic aquí para agregar tu propio texto y editar. Aquí puedes contar tu historia
+                        y permitir que tus usuarios sepan más sobre ti.
+                    </p>
+                </div>
+                <div className="pacifico-content">
+                    <img
+                        src={isMobile ? agua : spa2}
+                        alt="Imagen 1"
+                        className="pacifico-image"
+                    />
+                    <img
+                        src={isMobile ? agua2 : spa3}
+                        alt="Imagen 2"
+                        className="pacifico-image"
+                    />
+                    <div className="circle-button">Reserva un tratamiento</div>
+                </div>
+            </section>
+
+            <section className={`serenidadHome ${showTranquilidad ? "visible" : ""}`}>
+                <div className="serenidadHome-text">
+                    <h2>TEN SERENIDAD EN CASA</h2>
+                    <p>
+                        Párrafo. Haz clic aquí para agregar tu propio texto y editar. Aquí puedes contar tu historia
+                        y permitir que tus usuarios sepan más sobre ti.
+                    </p>
+                    <div className="circle" onClick={handleNavigateTotiendaleslispa}>Tienda serenidad</div>
+                    <div className="cosas">
+                        <img src={spa4} alt="Nueva Imagen" className="serenidadHome-image" />
+                    </div>
+                </div>
+                <div className="cosas2">
+                    <img src={perfume} alt="Masaje relajante" className="serenidadHome-image2" />
+                </div>
+            </section>
+
+            <div className="elcactus">
+                <div className="elcactuspadding">
+                    <div className="elcactusText">HORARIO LABORAL</div>
+                    <div className="informacion">
+                        <div className="lunesviernes">
+                            <div className="dia">Lunes-Viernes</div>
+                            <div className="hora">7:00-22:00</div>
+                        </div>
+                        <div>
+                            <div className="dia">Sábado</div>
+                            <div className="hora">8:00-22:00</div>
+                        </div>
+                        <div>
+                            <div className="dia">Domingo</div>
+                            <div className="hora">8:00-22:00</div>
                         </div>
                     </div>
-                ))}
+                </div>
             </div>
 
-            <div><PiePaginaLesli /></div>
+            <div className="ubication">
+                <div className="ubicationPadding">
+                    <div className="ubicationText">
+                        <div className="ubicationTitle">UBICACIÓN</div>
+                        <div className="ubicationParrafo">
+                            Av. Fray A. Alcalde 10, 44100, Guad., Jal., México
+                        </div>
+                    </div>
+                    <div className="imagenesJuntas">
+                        <img src={spa5} alt="Masaje relajante" className="serenidadHome-image2" />
+                        <div className="imagenPrimera" />
+                        <img src={spa6} alt="Masaje relajante" className="serenidadHome-image2" />
+                        <div className="imagenSegunda" />
+                    </div>
+                </div>
+            </div>
 
-            {/* Renderiza el Modal de Resumen si isSummaryModalOpen es true */}
-            {isSummaryModalOpen && (
-                <SummaryModal
-                    isOpen={isSummaryModalOpen}
-                    onClose={handleCloseAllModals} // Cerrar ambos modales
-                    onAddServiceClick={handleAddServiceClick} // Abre el modal de agregar
-                    servicesInQuote={selectedServicesInQuote} // Pasa los servicios seleccionados
-                />
-            )}
-
-            {/* Renderiza el Modal de Agregar Servicio si isAddServiceModalOpen es true */}
-            {isAddServiceModalOpen && (
-                <AddServiceModal
-                    isOpen={isAddServiceModalOpen}
-                    onClose={handleCloseAllModals} // Cerrar ambos modales
-                    onServiceSelect={handleServiceSelectInAddModal} // Maneja la selección y vuelve al resumen
-                    onBack={handleBackToSummary} // Vuelve al resumen
-                    allServices={servicios} // Pasa la lista completa de servicios para mostrar
-                />
-            )}
+            <footer className="footer">
+                <div className="footer-container">
+                    <div className="footer-logo">
+                        <img src={logolesli} alt="Logo" className="footer-icon" />
+                        <h2>SERENIDAD<br />TERAPIA SPA</h2>
+                    </div>
+                    <div className="footer-menu">
+                        <h3>Menú</h3>
+                        <ul>
+                            <li>Acerca de</li>
+                            <li>Instalaciones</li>
+                            <li>Tratamientos</li>
+                            <li>Tienda</li>
+                            <li>Contacto</li>
+                        </ul>
+                    </div>
+                    <div className="footer-social">
+                        <h3>Síguenos</h3>
+                        <ul>
+                            <li>Facebook</li>
+                            <li>Instagram</li>
+                            <li>Yelp</li>
+                            <li>TripAdvisor</li>
+                        </ul>
+                    </div>
+                    <div className="footer-contact">
+                        <h3>Reservas</h3>
+                        <p>Mail: info@misitio.com</p>
+                        <p>Tel: +52-1-33-12345678</p>
+                    </div>
+                </div>
+                <div className="footer-bottom">
+                    <p>© 2035 Creado por Serenidad Terapia Spa con <a href="https://wix.com">Wix.com</a></p>
+                    <div className="footer-links">
+                        <a href="#">Términos y condiciones</a>
+                        <a href="#">Política de envío</a>
+                        <a href="#">Política de privacidad</a>
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 };
 
-export default LesliTratamientos;
+export default LesliSpa;
