@@ -7,7 +7,7 @@ import piscina from '../../images/piscina.png'; // Asegúrate de que la ruta sea
 import masajecuello from '../../images/masajecuello.png';
 import sal from '../../images/sal.png';
 import piscina3 from '../../images/piscina3.png';
-import NavbarLesli from './navbarlesli';
+import NavbarLesli from './NavbarLesli';
 import PiePaginaLesli from './PiePaginaLesli';
 
 const AcercaDe = () => {

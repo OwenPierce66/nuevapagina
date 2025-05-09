@@ -8,7 +8,7 @@ import mascarilla from "../../images/mascarilla.webp";
 import masajehidratante from "../../images/masajehidratante.webp";
 import masajecabello from "../../images/masajecabello.webp";
 import shiatsu from "../../images/shiatsu.png";
-import NavbarLesli from './Navbarlesli';
+import NavbarLesli from './NavbarLesli';
 import PiePaginaLesli from './PiePaginaLesli';
 import SummaryModal from "./modals/SummaryModal";
 import AddServiceModal from "./modals/AddServiceModal";
