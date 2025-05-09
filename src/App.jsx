@@ -71,7 +71,8 @@ function App() {
       <Navbar cartItemCount={cartItems.length} openCart={() => setIsCartOpen(true)} /> {/* Asegúrate de que Navbar acepte estas props */}
       <Routes>
         <Route path="/" element={<HellsVanity />} />
-        <Route path="/home" element={<Home />} />
+        {/* <Route path="/home" element={<Home />} /> */}
+        <Route path="/home" element={<HellsVanity />} />
         <Route path="/hellsvanity" element={<HellsVanity />} />
         <Route path="/leslispa" element={<LesliSpa />} />
         <Route path="/leslispa/acercade" element={<AcercaDe />} />
