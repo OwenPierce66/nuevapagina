@@ -26,7 +26,7 @@ const AddServiceModal = ({ isOpen, onClose, onServiceSelect, onBack, allServices
 
 
     return (
-        <div className="modal-overlay" onClick={onClose}>
+        <div className="modal-overlay" onClick={e => { if (e.target.className === 'modal-overlay') onClose(); }}>
             <div className="modal-content add-service-modal" onClick={e => e.stopPropagation()}>
                 <div className="modal-header">
                     <h2>Agregar a tu cita</h2>
@@ -74,7 +74,7 @@ const AddServiceModal = ({ isOpen, onClose, onServiceSelect, onBack, allServices
                     </div>
 
                 </div>
-                <div className="modal-footer">
+                <div className="modal-footer-otro">
                     {/* Botón para volver al modal anterior */}
                     <button className="back-button" onClick={onBack}>
                         &lt; Volver

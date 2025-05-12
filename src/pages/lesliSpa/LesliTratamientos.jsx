@@ -12,12 +12,14 @@ import NavbarLesli from './NavbarLesli';
 import PiePaginaLesli from './PiePaginaLesli';
 import SummaryModal from "./modals/SummaryModal";
 import AddServiceModal from "./modals/AddServiceModal";
+import { useNavigate } from "react-router-dom";
 
 const LesliTratamientos = () => {
     const [categoriaActiva, setCategoriaActiva] = useState("Todos");
     const [isSummaryModalOpen, setIsSummaryModalOpen] = useState(false);
     const [isAddServiceModalOpen, setIsAddServiceModalOpen] = useState(false);
     const [selectedServicesInQuote, setSelectedServicesInQuote] = useState([]);
+    const navigate = useNavigate();
 
     const servicios = [
         {
@@ -82,8 +84,15 @@ const LesliTratamientos = () => {
         ? servicios
         : servicios.filter(serv => serv.categoria === categoriaActiva);
 
+    const handleRemoveService = (serviceToRemove) => {
+        setSelectedServicesInQuote(prevServices =>
+            prevServices.filter(service => service.titulo !== serviceToRemove.titulo)
+        );
+    };
+
     const handleReservarClick = (service) => {
         setSelectedServicesInQuote([service]);
+        navigate('/leslispa/bookingpage', { state: { selectedServices: [service] } });
         setIsSummaryModalOpen(true);
         setIsAddServiceModalOpen(false);
     };
@@ -167,6 +176,7 @@ const LesliTratamientos = () => {
                     onClose={handleCloseAllModals}
                     onAddServiceClick={handleAddServiceClick}
                     servicesInQuote={selectedServicesInQuote}
+                    onRemoveService={handleRemoveService}
                 />
             )}
 

@@ -1,3 +1,4 @@
+// In BookingPage.jsx
 import React, { useState, useEffect } from 'react';
 import './BookingPage.scss';
 import Calendar from 'react-calendar';
@@ -85,6 +86,38 @@ const BookingPage = ({ selectedServicesForBooking = [] }) => {
             precio: "$999",
             categoria: "Masajes",
             imagen: "shiatsu"
+        },
+        {
+            titulo: "Tratamiento de cuerpo entero",
+            descripcion: "Describe uno de tus servicios en esta área.",
+            duracion: "1 h",
+            precio: "$850",
+            categoria: "Exfoliaciones",
+            imagen: "masajesal"
+        },
+        {
+            titulo: "Mascarilla corporal desintoxicante",
+            descripcion: "Describe uno de tus servicios en esta área.",
+            duracion: "1 h",
+            precio: "$850",
+            categoria: "Tratamientos corporales",
+            imagen: "mascarilla"
+        },
+        {
+            titulo: "Envoltura corporal hidratante",
+            descripcion: "Describe uno de tus servicios en esta área.",
+            duracion: "45 min",
+            precio: "$670",
+            categoria: "Tratamientos corporales",
+            imagen: "masajehidratante"
+        },
+        {
+            titulo: "Masaje de cuero cabelludo",
+            descripcion: "Describe uno de tus servicios en esta área.",
+            duracion: "30 min",
+            precio: "$600",
+            categoria: "Tratamientos corporales",
+            imagen: "masajecabello"
         }
     ];
 
@@ -113,6 +146,7 @@ const BookingPage = ({ selectedServicesForBooking = [] }) => {
 
     const handleNextClick = () => {
         if (selectedDate && selectedTime && isWeekday(selectedDate)) {
+            navigate('/leslispa/bookingpage', { state: { selectedServices: selectedServicesInQuote } });
             setCurrentView('enterDetails');
         } else {
             alert('Por favor, selecciona una fecha y hora válida (Lunes a Viernes).');
@@ -120,7 +154,11 @@ const BookingPage = ({ selectedServicesForBooking = [] }) => {
     };
 
     const handleBackClick = () => {
-        navigate('/leslispa/tratamientos');
+        if (currentView === 'enterDetails') {
+            setCurrentView('selectDateTime');
+        } else {
+            navigate('/leslispa/tratamientos');
+        }
     };
 
     const handleSubmit = (e) => {
@@ -130,12 +168,10 @@ const BookingPage = ({ selectedServicesForBooking = [] }) => {
     const handleReservarClick = (service) => {
         setSelectedServicesInQuote([service]);
         setIsSummaryModalOpen(true);
-        setIsAddServiceModalOpen(false);
     };
 
     const handleAddServiceClick = () => {
-        setIsSummaryModalOpen(false);
-        setIsAddServiceModalOpen(true);
+        setIsSummaryModalOpen(true);
     };
 
     const handleServiceSelectInAddModal = (service) => {
@@ -155,6 +191,19 @@ const BookingPage = ({ selectedServicesForBooking = [] }) => {
     const handleBackToSummary = () => {
         setIsAddServiceModalOpen(false);
         setIsSummaryModalOpen(true);
+    };
+
+    const initialTimes = times.slice(0, 10); // Horarios hasta las 2:30 PM
+
+    const handleRemoveService = (serviceToRemove) => {
+        setSelectedServicesInQuote(prevServices =>
+            prevServices.filter(service => service.titulo !== serviceToRemove.titulo)
+        );
+    };
+
+    const handleOpenAddServiceModal = () => {
+        setIsSummaryModalOpen(false);
+        setIsAddServiceModalOpen(true);
     };
 
     return (
@@ -206,7 +255,7 @@ const BookingPage = ({ selectedServicesForBooking = [] }) => {
                                             ) : (
                                                 <>
                                                     <div className="time-options">
-                                                        {times.map((time) => (
+                                                        {initialTimes.map((time) => (
                                                             <button
                                                                 key={time}
                                                                 className={selectedTime === time ? 'time-slot selected' : 'time-slot'}
@@ -361,8 +410,7 @@ const BookingPage = ({ selectedServicesForBooking = [] }) => {
                                                 placeholder=""
                                                 value={clientPhone}
                                                 onChange={setClientPhone}
-                                                defaultCountry="MX" // Establece México como país por defecto
-                                            />
+                                                defaultCountry="MX" />
                                             {/* <input
                                                 type="tel"
                                                 id="clientPhone"
@@ -431,8 +479,9 @@ const BookingPage = ({ selectedServicesForBooking = [] }) => {
                 <SummaryModal
                     isOpen={isSummaryModalOpen}
                     onClose={handleCloseAllModals}
-                    onAddServiceClick={handleAddServiceClick}
+                    onAddServiceClick={handleOpenAddServiceModal}
                     servicesInQuote={selectedServicesInQuote}
+                    onRemoveService={handleRemoveService}
                 />
             )}
 

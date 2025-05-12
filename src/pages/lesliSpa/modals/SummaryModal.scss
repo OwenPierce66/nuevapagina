@@ -14,11 +14,9 @@
 
 .modal-content {
     background-color: #fff; // Fondo blanco para el contenido del modal
-    padding: 20px;
-    border-radius: 8px; // Bordes redondeados
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); // Sombra
-    width: 90%; // Ancho del modal
-    max-width: 400px; // Ancho máximo (ajusta según imagen de referencia)
+    // width: 39%; 
+    // max-width: 400px; 
     max-height: 90%; // Altura máxima para evitar que sea más alto que la pantalla
     overflow-y: auto; // Añade scroll si el contenido es demasiado largo
     position: relative; // Para posicionar elementos internos si es necesario
@@ -31,15 +29,18 @@
     justify-content: space-between; // Espacio entre título y botón cerrar
     align-items: center;
     border-bottom: 1px solid #eee; // Línea separadora
-    padding-bottom: 15px;
-    margin-bottom: 15px;
+    padding-bottom: 5px;
+    // margin-bottom: 15px;
 
-    h2 {
+    .modal-title {
         margin: 0;
-        font-size: 1.4em; // Tamaño del título "Resumen de la cita"
-        color: #333; // Color del título
+        font-size: 1.1em; // Tamaño del título "Resumen de la cita"
+        color: black; // Color del título
         font-family: serif; // Ajusta la fuente según tu diseño
-        font-weight: 100;
+        font-weight: 500;
+        padding: 24px;
+        font-size: 1.1em !important; // Tamaño del título "Resumen de la cita"
+        color: black !important; // Color del título
     }
 
     .close-button {
@@ -48,7 +49,8 @@
         font-size: 1.8em; // Tamaño del botón de cerrar
         color: #777; // Color del botón de cerrar
         cursor: pointer;
-        padding: 0;
+        padding: 16px;
+        padding: 0 16px;
 
         &:hover {
             color: #333;
@@ -85,20 +87,20 @@
 
     .add-service-section {
         text-align: center; // Centra la sección
-        margin-bottom: 20px;
+        padding: 9px 33px 16px;
 
         p {
             margin-bottom: 10px;
             font-size: 1em;
             color: #333;
+            text-align: left;
         }
 
         .add-service-btn {
             background: none;
-            border: 1px solid #2d5661; // Borde similar a otros botones
-            border-radius: 5px; // Bordes ligeramente redondeados
-            padding: 10px 20px;
-            color: #2d5661;
+            border: 2px solid rgb(45 86 97 / 56%); // Borde similar a otros botones
+            padding: 16px;
+            color: #2d5661cf;
             font-size: 1em;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -113,15 +115,15 @@
 }
 
 .modal-footer {
-    border-top: 1px solid #eee; // Línea separadora
-    padding-top: 15px;
-    text-align: center; // Centra el botón
+    border-top: 2px solid #dadee3;
+    padding: 22px;
+    width: auto;
+    text-align: center;
 
     .programar-cita-btn {
         background-color: #2d5661; // Color de tu tema
         color: #fff;
         border: none;
-        border-radius: 5px;
         padding: 12px 20px;
         font-size: 1.1em;
         cursor: pointer;
@@ -146,11 +148,31 @@
 }
 
 .service-item-summary {
-    // border: 1px solid blue !important;
-    /* Temporal para ver cada item */
-    // Asegúrate de que display no sea none y que tenga altura
-    display: flex !important; // O block, o grid - debe tener algún tipo de display
-    padding: 10px !important; // Asegúrate de que haya espacio interno
+    border: 2px solid #dadee3;
+    color: #292727 !important;
+    display: flex !important;
+    // flex-direction: column !important;
+    padding: 10px !important;
+    margin: 16px 33px;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.service-details {
+    flex-grow: 1;
+}
+
+.remove-service-icon {
+    cursor: pointer;
+    color: #888;
+    padding: 16px;
+
+    &:hover {
+        color: #c3c3c3;
+        /* Example: a shade of red */
+    }
 }
 
 .service-item-summary h3,
