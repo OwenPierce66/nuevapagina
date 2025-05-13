@@ -12,6 +12,8 @@ import AddServiceModal from "./modals/AddServiceModal";
 import { useNavigate, useLocation } from 'react-router-dom';
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
+import NavbarLesli from './NavbarLesli';
+import PiePaginaLesli from './PiePaginaLesli';
 dayjs.locale('es');
 
 const BookingPage = ({ selectedServicesForBooking = [] }) => {
@@ -207,76 +209,58 @@ const BookingPage = ({ selectedServicesForBooking = [] }) => {
     };
 
     return (
-        <div className="booking-page">
-            <div className="header">
-                {currentView === 'selectDateTime' && (
-                    <>
-                        <div className="texto-informativo">
-                            <button className="back-button" onClick={handleBackClick}>
-                                &lt; Volver
-                            </button>
+        <div>
+            <NavbarLesli />
 
-                            <h1>Programa tu cita</h1>
-                            <p>Revisa nuestra disponibilidad y reserva la fecha y hora que más te convengan</p>
-                        </div>
+            <div className="booking-page">
+                <div className="header">
+                    {currentView === 'selectDateTime' && (
+                        <>
+                            <div className="texto-informativo">
+                                <button className="back-button" onClick={handleBackClick}>
+                                    &lt; Volver
+                                </button>
 
-                        <div className='separar-titulos'>
-                            <div className='texto-titulo' >Selecciona fecha y hora</div>
-                            <div className="timezone-info">Zona horaria: hora estándar central (GMT-6)</div>
-                        </div>
+                                <h1>Programa tu cita</h1>
+                                <p>Revisa nuestra disponibilidad y reserva la fecha y hora que más te convengan</p>
+                            </div>
 
-                        <div className="booking-grid">
-                            <div className="calendar-section">
-                                <div className='calendar-container'>
-                                    <div className="calendar-header">
-                                        <button onClick={() => setSelectedDate(new Date(selectedDate.setMonth(selectedDate.getMonth() - 1)))}>&lt;</button>
-                                        <span>{dayjs(selectedDate).format('MMMM YYYY')}</span>
-                                        <button onClick={() => setSelectedDate(new Date(selectedDate.setMonth(selectedDate.getMonth() + 1)))}>&gt;</button>
+                            <div className='separar-titulos'>
+                                <div className='texto-titulo' >Selecciona fecha y hora</div>
+                                <div className="timezone-info">Zona horaria: hora estándar central (GMT-6)</div>
+                            </div>
+
+                            <div className="booking-grid">
+                                <div className="calendar-section">
+                                    <div className='calendar-container'>
+                                        <div className="calendar-header">
+                                            <button onClick={() => setSelectedDate(new Date(selectedDate.setMonth(selectedDate.getMonth() - 1)))}>&lt;</button>
+                                            <span>{dayjs(selectedDate).format('MMMM YYYY')}</span>
+                                            <button onClick={() => setSelectedDate(new Date(selectedDate.setMonth(selectedDate.getMonth() + 1)))}>&gt;</button>
+                                        </div>
+                                        <Calendar
+                                            onChange={handleDateChange}
+                                            value={selectedDate}
+                                            calendarType="gregory"
+                                            className="react-calendar-custom"
+                                            tileDisabled={({ date }) => !isWeekday(date)}
+                                        />
                                     </div>
-                                    <Calendar
-                                        onChange={handleDateChange}
-                                        value={selectedDate}
-                                        calendarType="gregory"
-                                        className="react-calendar-custom"
-                                        tileDisabled={({ date }) => !isWeekday(date)}
-                                    />
-                                </div>
 
-                                <div className='calendar-info'>
-                                    {selectedDate && (
-                                        <>
-                                            <label>Disponibilidad para: {dayjs(selectedDate).format('dddd, D [de] MMMM')}</label>
-                                            {!isWeekday(selectedDate) ? (
-                                                <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                                                    <p style={{ marginBottom: '10px' }}>
-                                                        No hay disponibilidad en este día. Selecciona un día de Lunes a Viernes.
-                                                    </p>
-                                                </div>
-                                            ) : (
-                                                <>
-                                                    <div className="time-options">
-                                                        {initialTimes.map((time) => (
-                                                            <button
-                                                                key={time}
-                                                                className={selectedTime === time ? 'time-slot selected' : 'time-slot'}
-                                                                onClick={() => handleTimeClick(time)}
-                                                            >
-                                                                {formatTimeDisplay(time)}
-                                                            </button>
-                                                        ))}
+                                    <div className='calendar-info'>
+                                        {selectedDate && (
+                                            <>
+                                                <label>Disponibilidad para: {dayjs(selectedDate).format('dddd, D [de] MMMM')}</label>
+                                                {!isWeekday(selectedDate) ? (
+                                                    <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                                                        <p style={{ marginBottom: '10px' }}>
+                                                            No hay disponibilidad en este día. Selecciona un día de Lunes a Viernes.
+                                                        </p>
                                                     </div>
-
-                                                    {!showAllSessions && (
-                                                        <div className="show-more-sessions" style={{ textAlign: 'center', marginTop: '10px' }}>
-                                                            <button onClick={() => setShowAllSessions(true)} className="show-more-button">
-                                                                Mostrar todas las sesiones
-                                                            </button>
-                                                        </div>
-                                                    )}
-
-                                                    {showAllSessions && (
+                                                ) : (
+                                                    <>
                                                         <div className="time-options">
-                                                            {times.slice(10).map((time) => (
+                                                            {initialTimes.map((time) => (
                                                                 <button
                                                                     key={time}
                                                                     className={selectedTime === time ? 'time-slot selected' : 'time-slot'}
@@ -286,215 +270,239 @@ const BookingPage = ({ selectedServicesForBooking = [] }) => {
                                                                 </button>
                                                             ))}
                                                         </div>
-                                                    )}
-                                                </>
-                                            )}
-                                        </>
-                                    )}
+
+                                                        {!showAllSessions && (
+                                                            <div className="show-more-sessions" style={{ textAlign: 'center', marginTop: '10px' }}>
+                                                                <button onClick={() => setShowAllSessions(true)} className="show-more-button">
+                                                                    Mostrar todas las sesiones
+                                                                </button>
+                                                            </div>
+                                                        )}
+
+                                                        {showAllSessions && (
+                                                            <div className="time-options">
+                                                                {times.slice(10).map((time) => (
+                                                                    <button
+                                                                        key={time}
+                                                                        className={selectedTime === time ? 'time-slot selected' : 'time-slot'}
+                                                                        onClick={() => handleTimeClick(time)}
+                                                                    >
+                                                                        {formatTimeDisplay(time)}
+                                                                    </button>
+                                                                ))}
+                                                            </div>
+                                                        )}
+                                                    </>
+                                                )}
+                                            </>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div className="summary-section">
-                                <div className="texto-reserva">Datos de la reserva</div>
+                                <div className="summary-section">
+                                    <div className="texto-reserva">Datos de la reserva</div>
 
-                                <div className="summary-header">
-                                    <div className="summary-separar">
-                                        <div>
-                                            {selectedServicesInQuote.length > 0 ? (
-                                                selectedServicesInQuote.map((service, index) => (
-                                                    <div key={index} className="summary-service-item">
-                                                        <p><strong>{service.titulo}</strong></p>
-                                                        <p>{service.duracion} • {service.precio}</p>
+                                    <div className="summary-header">
+                                        <div className="summary-separar">
+                                            <div>
+                                                {selectedServicesInQuote.length > 0 ? (
+                                                    selectedServicesInQuote.map((service, index) => (
+                                                        <div key={index} className="summary-service-item">
+                                                            <p><strong>{service.titulo}</strong></p>
+                                                            <p>{service.duracion} • {service.precio}</p>
+                                                        </div>
+                                                    ))
+                                                ) : (
+                                                    <p>No se han seleccionado servicios.</p>
+                                                )}
+                                                {selectedDate && (
+                                                    <p className="summary-date">
+                                                        {dayjs(selectedDate).format('dddd, D [de] MMMM')}
+                                                    </p>
+                                                )}
+                                                {selectedTime && (
+                                                    <p className="summary-time">
+                                                        Hora: {formatTimeDisplay(selectedTime)}
+                                                    </p>
+                                                )}
+                                                <p>Av. Fray Antonio Alcalde 10</p>
+                                            </div>
+                                            <div className='subir-boton'>
+                                                <button className="edit-link" onClick={handleAddServiceClick}>
+                                                    <div className='separar-editar'>
+                                                        <div>
+                                                            <FontAwesomeIcon icon={faEdit} />
+                                                        </div>
+                                                        <div>Editar</div>
                                                     </div>
-                                                ))
-                                            ) : (
-                                                <p>No se han seleccionado servicios.</p>
-                                            )}
-                                            {selectedDate && (
-                                                <p className="summary-date">
-                                                    {dayjs(selectedDate).format('dddd, D [de] MMMM')}
-                                                </p>
-                                            )}
-                                            {selectedTime && (
-                                                <p className="summary-time">
-                                                    Hora: {formatTimeDisplay(selectedTime)}
-                                                </p>
-                                            )}
-                                            <p>Av. Fray Antonio Alcalde 10</p>
+                                                </button>
+                                            </div>
                                         </div>
-                                        <div className='subir-boton'>
-                                            <button className="edit-link" onClick={handleAddServiceClick}>
-                                                <div className='separar-editar'>
-                                                    <div>
-                                                        <FontAwesomeIcon icon={faEdit} />
-                                                    </div>
-                                                    <div>Editar</div>
-                                                </div>
+                                        <div className='editar-botones'>
+                                            <button
+                                                className={`confirm-btn ${!selectedDate || !selectedTime || !isWeekday(selectedDate) ? 'disabled' : ''}`}
+                                                onClick={handleNextClick}
+                                                disabled={!selectedDate || !selectedTime || !isWeekday(selectedDate)}
+                                            >
+                                                Siguiente
                                             </button>
                                         </div>
                                     </div>
-                                    <div className='editar-botones'>
-                                        <button
-                                            className={`confirm-btn ${!selectedDate || !selectedTime || !isWeekday(selectedDate) ? 'disabled' : ''}`}
-                                            onClick={handleNextClick}
-                                            disabled={!selectedDate || !selectedTime || !isWeekday(selectedDate)}
-                                        >
-                                            Siguiente
-                                        </button>
-                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </>
-                )}
+                        </>
+                    )}
 
-                {currentView === 'enterDetails' && (
-                    <div className="booking-form-view">
-                        <button className="back-button" onClick={handleBackClick}>
-                            &lt; Volver
-                        </button>
+                    {currentView === 'enterDetails' && (
+                        <div className="booking-form-view">
+                            <button className="back-button" onClick={handleBackClick}>
+                                &lt; Volver
+                            </button>
 
-                        <h1>Formulario de reserva</h1>
+                            <h1>Formulario de reserva</h1>
 
-                        <div className="form-grid">
-                            <div className="client-details-section">
-                                <div className='quitarborder'>Detalles del cliente</div>
-                                <p className="login-prompt">¿Ya tienes una cuenta? <a href="#">Inicia sesión</a></p>
+                            <div className="form-grid">
+                                <div className="client-details-section">
+                                    <div className='quitarborder'>Detalles del cliente</div>
+                                    <p className="login-prompt">¿Ya tienes una cuenta? <a href="#">Inicia sesión</a></p>
 
-                                <form onSubmit={handleSubmit}>
-                                    <div className="form-separar">
+                                    <form onSubmit={handleSubmit}>
+                                        <div className="form-separar">
 
-                                        <div className="form-group">
-                                            <label htmlFor="clientName">Nombre *</label>
-                                            <input
-                                                className='inputs'
-                                                type="text"
-                                                id="clientName"
-                                                value={clientName}
-                                                onChange={(e) => setClientName(e.target.value)}
-                                                required
-                                            />
+                                            <div className="form-group">
+                                                <label htmlFor="clientName">Nombre *</label>
+                                                <input
+                                                    className='inputs'
+                                                    type="text"
+                                                    id="clientName"
+                                                    value={clientName}
+                                                    onChange={(e) => setClientName(e.target.value)}
+                                                    required
+                                                />
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="clientSurname">Apellido *</label>
+                                                <input
+                                                    className='inputs'
+
+                                                    type="text"
+                                                    id="clientSurname"
+                                                    value={clientSurname}
+                                                    onChange={(e) => setClientSurname(e.target.value)}
+                                                    required
+                                                />
+                                            </div>
                                         </div>
-                                        <div className="form-group">
-                                            <label htmlFor="clientSurname">Apellido *</label>
-                                            <input
-                                                className='inputs'
 
-                                                type="text"
-                                                id="clientSurname"
-                                                value={clientSurname}
-                                                onChange={(e) => setClientSurname(e.target.value)}
-                                                required
-                                            />
-                                        </div>
-                                    </div>
+                                        <div className="form-separar">
 
-                                    <div className="form-separar">
+                                            <div className="form-group">
+                                                <label htmlFor="clientEmail">Email *</label>
+                                                <input
+                                                    className='inputs'
 
-                                        <div className="form-group">
-                                            <label htmlFor="clientEmail">Email *</label>
-                                            <input
-                                                className='inputs'
-
-                                                type="email"
-                                                id="clientEmail"
-                                                value={clientEmail}
-                                                onChange={(e) => setClientEmail(e.target.value)}
-                                                required
-                                            />
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="clientPhone">Teléfono</label>
-                                            <PhoneInput
-                                                className='inputs2'
-                                                placeholder=""
-                                                value={clientPhone}
-                                                onChange={setClientPhone}
-                                                defaultCountry="MX" />
-                                            {/* <input
+                                                    type="email"
+                                                    id="clientEmail"
+                                                    value={clientEmail}
+                                                    onChange={(e) => setClientEmail(e.target.value)}
+                                                    required
+                                                />
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="clientPhone">Teléfono</label>
+                                                <PhoneInput
+                                                    className='inputs2'
+                                                    placeholder=""
+                                                    value={clientPhone}
+                                                    onChange={setClientPhone}
+                                                    defaultCountry="MX" />
+                                                {/* <input
                                                 type="tel"
                                                 id="clientPhone"
                                                 value={clientPhone}
                                                 onChange={(e) => setClientPhone(e.target.value)}
                                             /> */}
-                                        </div>
-                                    </div>
-
-                                    <div className="form-group full-width">
-                                        <label htmlFor="clientMessage">Agrega tu mensaje aquí</label>
-                                        <textarea
-                                            id="clientMessage"
-                                            value={clientMessage}
-                                            onChange={(e) => setClientMessage(e.target.value)}
-                                            rows="4"
-                                        ></textarea>
-                                    </div>
-
-                                </form>
-                            </div>
-
-                            <div className="summary-section form-summary">
-                                <div className='subir-toto'>
-                                    <h3>Datos de la reserva</h3>
-                                    {selectedServicesInQuote.length > 0 ? (
-                                        selectedServicesInQuote.map((service, index) => (
-                                            <div key={index} className="summary-service-item">
-                                                <p><div>{service.titulo}</div></p>
-                                                <p>{service.duracion} &bull; {service.precio}</p>
                                             </div>
-                                        ))
-                                    ) : (
-                                        <p>No se han seleccionado servicios.</p>
-                                    )}
-                                    {selectedDate && selectedTime && (
-                                        <div className="summary-datetime">
-                                            {dayjs(selectedDate).format('D [de] MMMM [de] YYYY')}, {formatTimeDisplay(selectedTime)}
                                         </div>
-                                    )}
-                                    <p>Av. Fray Antonio Alcalde 10</p>
-                                    <p>Con Miembro del equipo n.º 1</p>
 
-                                    <div className="payment-summary">
-                                        <h3>Detalles del pago</h3>
-                                        <p>Subtotal <span>${subtotal.toFixed(2)}</span></p>
-                                        <p>IVA <span>${iva.toFixed(2)}</span></p>
-                                        <p>Total <span>${total.toFixed(2)}</span></p>
-                                    </div>
-                                    <p className="notification-text">
-                                        Al completar tu reserva, aceptas recibir notificaciones por SMS sobre la reserva.
-                                    </p>
-                                    <div className="form-actions">
-                                        <button type="submit" className="confirm-btn">
-                                            Reservar ahora
-                                        </button>
+                                        <div className="form-group full-width">
+                                            <label htmlFor="clientMessage">Agrega tu mensaje aquí</label>
+                                            <textarea
+                                                id="clientMessage"
+                                                value={clientMessage}
+                                                onChange={(e) => setClientMessage(e.target.value)}
+                                                rows="4"
+                                            ></textarea>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                                <div className="summary-section form-summary">
+                                    <div className='subir-toto'>
+                                        <h3>Datos de la reserva</h3>
+                                        {selectedServicesInQuote.length > 0 ? (
+                                            selectedServicesInQuote.map((service, index) => (
+                                                <div key={index} className="summary-service-item">
+                                                    <p><div>{service.titulo}</div></p>
+                                                    <p>{service.duracion} &bull; {service.precio}</p>
+                                                </div>
+                                            ))
+                                        ) : (
+                                            <p>No se han seleccionado servicios.</p>
+                                        )}
+                                        {selectedDate && selectedTime && (
+                                            <div className="summary-datetime">
+                                                {dayjs(selectedDate).format('D [de] MMMM [de] YYYY')}, {formatTimeDisplay(selectedTime)}
+                                            </div>
+                                        )}
+                                        <p>Av. Fray Antonio Alcalde 10</p>
+                                        <p>Con Miembro del equipo n.º 1</p>
+
+                                        <div className="payment-summary">
+                                            <h3>Detalles del pago</h3>
+                                            <p>Subtotal <span>${subtotal.toFixed(2)}</span></p>
+                                            <p>IVA <span>${iva.toFixed(2)}</span></p>
+                                            <p>Total <span>${total.toFixed(2)}</span></p>
+                                        </div>
+                                        <p className="notification-text">
+                                            Al completar tu reserva, aceptas recibir notificaciones por SMS sobre la reserva.
+                                        </p>
+                                        <div className="form-actions">
+                                            <button type="submit" className="confirm-btn">
+                                                Reservar ahora
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    )}
+                </div>
+
+                {isSummaryModalOpen && (
+                    <SummaryModal
+                        isOpen={isSummaryModalOpen}
+                        onClose={handleCloseAllModals}
+                        onAddServiceClick={handleOpenAddServiceModal}
+                        servicesInQuote={selectedServicesInQuote}
+                        onRemoveService={handleRemoveService}
+                    />
+                )}
+
+                {isAddServiceModalOpen && (
+                    <AddServiceModal
+                        isOpen={isAddServiceModalOpen}
+                        onClose={handleCloseAllModals}
+                        onServiceSelect={handleServiceSelectInAddModal}
+                        onBack={handleBackToSummary}
+                        allServices={servicios}
+                    />
                 )}
             </div>
-
-            {isSummaryModalOpen && (
-                <SummaryModal
-                    isOpen={isSummaryModalOpen}
-                    onClose={handleCloseAllModals}
-                    onAddServiceClick={handleOpenAddServiceModal}
-                    servicesInQuote={selectedServicesInQuote}
-                    onRemoveService={handleRemoveService}
-                />
-            )}
-
-            {isAddServiceModalOpen && (
-                <AddServiceModal
-                    isOpen={isAddServiceModalOpen}
-                    onClose={handleCloseAllModals}
-                    onServiceSelect={handleServiceSelectInAddModal}
-                    onBack={handleBackToSummary}
-                    allServices={servicios}
-                />
-            )}
+            <PiePaginaLesli />
         </div >
+
     );
 };
 

@@ -166,7 +166,7 @@
         .time-options {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 6px;
             margin-top: 15px;
         }
 
@@ -429,7 +429,7 @@
         }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 670px) {
         .booking-page {
             padding: 20px;
             padding-left: 20px;
@@ -457,6 +457,9 @@
             flex-direction: column;
             /* Cambia a columna */
             gap: 20px;
+            display: flex;
+            flex-direction: column;
+
             /* Espacio entre las secciones */
         }
 
@@ -464,6 +467,9 @@
             width: 100%;
             /* Asegura que el calendario ocupe todo el ancho */
             padding: 0;
+            display: flex;
+            flex-direction: column;
+
             /* Elimina el padding extra */
         }
 
@@ -532,6 +538,9 @@
             /* Asegura que el calendario ocupe todo el ancho */
         }
     }
+
+
+
 }
 
 .booking-form-view {
@@ -807,5 +816,74 @@
             color: #1a1a1a;
             margin-top: 1.5rem;
         }
+    }
+}
+
+@media (max-width: 768px) {
+
+    .calendar-section {
+        flex-direction: column;
+    }
+
+    .booking-grid {
+        flex-direction: column;
+        /* Cambia a columna */
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
+
+        /* Espacio entre las secciones */
+    }
+
+    .timezone-info {
+        margin-left: 0 !important;
+    }
+
+    .separar-titulos {
+        flex-direction: column;
+        /* Cambia a columna */
+        align-items: flex-start;
+        /* Alinea los elementos al inicio */
+        gap: 10px;
+        /* Espacio entre los elementos */
+    }
+
+    .booking-page {
+        padding: 33px;
+    }
+
+    .calendar-info {
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    .calendar-section {
+        width: 88% !important;
+    }
+
+    .calendar-container {
+        font-size: .8em !important;
+    }
+
+    .booking-grid {
+        align-items: center !important;
+    }
+
+    .booking-page .summary-section {
+        width: 100% !important;
+        padding: 0 !important;
+        border-left: none !important;
+        border-top: 1px solid #ccc !important;
+        margin-top: 20px !important;
+    }
+
+    .booking-form-view {
+        padding: 0 !important;
+
+    }
+
+    .client-details-section,
+    .summary-section {
+        padding: 0 !important;
     }
 }

@@ -1,10 +1,36 @@
 // CartPage.scss
 .cart-page-container {
-    padding: 40px;
-    font-family: 'Arial', sans-serif;
+
+    .finalizar-compra-btn {
+        background-color: transparent; // Botón verde/azul
+        color: black;
+        border: 1px solid #2d5661;
+        padding: 16px 20px;
+        border-radius: 25px; // Botón redondeado
+        font-size: .9em;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 33px;
+
+        &:hover {
+            background-color: #2d5661;
+        }
+    }
+
+    padding: 24px;
+    font-family: 'Arial',
+    sans-serif;
     color: #2d5661;
     max-width: 1000px; // Ancho máximo de la página del carrito
     margin: 20px auto; // Centrar y dar espacio arriba/abajo
+
+    .icon-tag {
+        padding-right: 9px;
+    }
+
+    .icon-note {
+        padding-right: 9px;
+    }
 
     h1 {
         font-size: 2em;
@@ -28,8 +54,11 @@
                 font-size: 1.5em;
                 margin-bottom: 20px;
                 padding-bottom: 10px;
-                border-bottom: 1px solid #ccc; // Línea debajo del título
-                color: #333;
+                font-weight: 100;
+                font-family: auto;
+                margin-top: 30px;
+                border-bottom: 2px solid #2d5661a2; // Línea debajo del título
+                color: #2d5661;
             }
 
             .empty-cart-message {
@@ -46,18 +75,17 @@
                     gap: 15px;
                     padding-bottom: 20px;
                     margin-bottom: 20px;
-                    border-bottom: 1px solid #eee;
+                    border-bottom: 1px solid #2d5661;
                     align-items: center; // Centra verticalmente los items
 
                     .item-image {
-                        width: 100px; // Ajusta el tamaño de la imagen
+                        // width: 100px;
                         height: auto;
 
                         img {
                             width: 100%;
                             height: auto;
                             display: block;
-                            border-radius: 5px;
                         }
                     }
 
@@ -91,16 +119,17 @@
                             .quantity-controls {
                                 display: flex;
                                 align-items: center;
-                                border: 1px solid #ccc;
-                                border-radius: 4px;
+                                border: 2px solid #a9a7a7;
+                                // border-radius: 4px;
                                 overflow: hidden;
 
                                 button {
-                                    background-color: #f8f8f8;
+                                    background-color: transparent;
                                     border: none;
-                                    padding: 5px 10px;
+                                    padding: 3px 10px;
                                     cursor: pointer;
-                                    font-size: 1em;
+                                    color: gray;
+                                    font-size: 1.5em;
                                     min-width: 30px;
 
                                     &:hover {
@@ -109,10 +138,12 @@
                                 }
 
                                 span {
-                                    padding: 5px 10px;
-                                    border-left: 1px solid #ccc;
-                                    border-right: 1px solid #ccc;
+                                    padding: 0 5px;
+                                    // border-left: 1px solid #ccc;
+                                    // border-right: 1px solid #ccc;
                                     font-size: 1em;
+                                    color: black;
+                                    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
                                     min-width: 30px;
                                     text-align: center;
                                 }
@@ -124,6 +155,9 @@
                                 color: #777;
                                 cursor: pointer;
                                 font-size: 1.1em;
+                                position: absolute;
+                                right: 22px;
+                                margin-top: -130px;
 
                                 &:hover {
                                     color: #dc3545;
@@ -133,8 +167,8 @@
                     }
 
                     .item-line-total {
-                        font-weight: bold;
-                        color: #333;
+                        color: black;
+                        font-family: system-ui;
                         font-size: 1.1em;
                         // Alineación vertical automática gracias a align-items: center en .cart-item
                     }
@@ -142,43 +176,48 @@
 
                 @media (max-width: 480px) {
                     .cart-item {
-                        flex-direction: column;
+                        // flex-direction: column;
                         align-items: center;
                         text-align: center;
 
                         .item-image {
-                            width: 80px;
+                            // width: 80px;
                             margin-bottom: 10px;
                         }
 
                         .item-details {
-                            width: 100%;
-                            align-items: center;
+                            // width: 100%;
+                            // align-items: center;
                         }
 
                         .item-name-price {
-                            text-align: center;
+                            text-align: left;
                         }
 
                         .item-quantity-remove {
-                            justify-content: center;
+                            // justify-content: center;
                         }
 
                         .item-line-total {
-                            margin-top: 10px; // Espacio entre controles y total en apilado
+                            margin-top: 77px; // Espacio entre controles y total en apilado
+                            padding-right: 50px;
                         }
                     }
                 }
+
 
             }
 
             .cart-addons {
                 margin-top: 30px;
-                font-size: 0.9em;
-                color: #555;
+                font-size: 1.1em;
+                color: #2d5661;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                border-bottom: 1px solid #2d5661;
+                padding-bottom: 16px;
 
                 div {
-                    margin-bottom: 10px;
+                    margin: 10px;
                     cursor: pointer; // Indica que son interactivos
 
                     &:hover {
@@ -191,10 +230,7 @@
         }
 
         .order-summary-section {
-            border: 1px solid #eee; // Borde similar al de la imagen
-            border-radius: 5px;
-            padding: 20px;
-            background-color: #f8f8f8; // Fondo ligero
+
             height: fit-content; // Ajusta la altura al contenido
 
             h2 {
@@ -207,31 +243,35 @@
             }
 
             .summary-details {
+                font-family: system-ui;
+
                 .summary-row {
                     display: flex;
                     justify-content: space-between;
                     margin-bottom: 10px;
+                    // font-size: 1.1em;
+                    font-weight: 100;
 
                     span {
-                        font-size: 1em;
-                        color: #555;
+                        font-size: 1.4em;
+                        color: black;
                     }
 
                     &.shipping-location {
                         font-size: 0.9em;
-                        justify-content: flex-end; // Alinea la ubicación a la derecha
-                        color: #777;
+                        // justify-content: flex-end;
+                        // color: #777;
                     }
                 }
 
                 .divider {
-                    border-top: 1px solid #ccc;
+                    border-top: 1px solid #2d5661;
                     margin: 15px 0;
                 }
 
                 .total-row {
-                    font-size: 1.2em;
-                    font-weight: bold;
+                    font-size: 1.4em;
+                    font-weight: 100;
                     color: #2d5661;
                 }
             }
@@ -245,7 +285,7 @@
                 font-size: 1.1em;
                 cursor: pointer;
                 width: 100%;
-                margin-top: 20px;
+                margin-top: 33px;
 
                 &:hover {
                     background-color: #2d5661;
@@ -255,8 +295,15 @@
             .secure-payment {
                 text-align: center;
                 font-size: 0.8em;
-                color: #777;
-                margin-top: 10px;
+                font-size: 1em;
+                color: black;
+                margin-top: 16px;
+                margin-bottom: 44px;
+
+                span {
+                    margin-left: 9px;
+                }
+
                 /* Añadir estilos para icono de candado si lo usas */
             }
         }

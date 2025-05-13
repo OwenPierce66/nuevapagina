@@ -3,7 +3,9 @@ import React from 'react';
 import './CartPage.scss'; // Creamos un archivo SCSS para la página del carrito
 import { Link } from 'react-router-dom'; // Si quieres un botón Volver que navegue
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faLock, faStickyNote, faTag } from "@fortawesome/free-solid-svg-icons";
+import PiePaginaLesli from './PiePaginaLesli';
+import NavbarLesli from './NavbarLesli';
 
 // Componente de la página completa del carrito
 // Recibe los items y las funciones para modificar el carrito desde App.jsx
@@ -20,11 +22,14 @@ const CartPage = ({ cartItems, onUpdateQuantity, onRemoveItem }) => {
 
     return (
         <div className="cart-page-container">
-            <h1>Carrito de compras</h1> {/* Título de la página */}
-
+            {/* <h1>Carrito de compras</h1>  */}
+            <NavbarLesli />
             <div className="cart-page-grid">
                 <div className="cart-items-section">
-                    <h2>Mi carrito ({cartItems.length} {cartItems.length === 1 ? 'item' : 'items'})</h2>
+                    <button className="finalizar-compra-btn">Finalizar compra</button>
+
+                    {/* <h2>Mi carrito ({cartItems.length} {cartItems.length === 1 ? 'item' : 'items'})</h2> */}
+                    <h2>Mi carrito </h2>
                     {cartItems.length === 0 ? (
                         <p className="empty-cart-message">Tu carrito está vacío.</p>
                     ) : (
@@ -63,10 +68,13 @@ const CartPage = ({ cartItems, onUpdateQuantity, onRemoveItem }) => {
                     <div className="cart-addons">
                         <div className="promo-code">
                             {/* Puedes añadir un icono aquí */}
+                            <FontAwesomeIcon icon={faTag} className='icon-tag' />
+
                             <span>Ingresar código promocional</span>
                         </div>
                         <div className="add-note">
                             {/* Puedes añadir un icono aquí */}
+                            <FontAwesomeIcon icon={faStickyNote} className='icon-note' />
                             <span>Agregar una nota</span>
                         </div>
                     </div>
@@ -74,7 +82,7 @@ const CartPage = ({ cartItems, onUpdateQuantity, onRemoveItem }) => {
                 </div>
 
                 <div className="order-summary-section">
-                    <h2>Resumen del pedido</h2>
+                    {/* <h2>Resumen del pedido</h2> */}
                     <div className="summary-details">
                         <div className="summary-row">
                             <span>Subtotal</span>
@@ -93,6 +101,7 @@ const CartPage = ({ cartItems, onUpdateQuantity, onRemoveItem }) => {
                         <div className="divider"></div>
                         {/* Total */}
                         <div className="summary-row total-row">
+
                             <span>Total</span>
                             <span>{formattedSubtotal}</span>
                         </div>
@@ -103,11 +112,12 @@ const CartPage = ({ cartItems, onUpdateQuantity, onRemoveItem }) => {
                     {/* Mensaje de pago seguro */}
                     <div className="secure-payment">
                         {/* Puedes añadir un icono de candado aquí */}
+                        <FontAwesomeIcon icon={faLock} />
                         <span>Pago seguro</span>
                     </div>
                 </div>
             </div>
-
+            <PiePaginaLesli />
             {/* Botón o enlace para seguir comprando, si lo deseas en la página completa */}
             {/* <Link to="/leslispa/tienda" className="continue-shopping-link">Seguir comprando</Link> */}
         </div>

@@ -74,8 +74,8 @@ const LesliTienda = ({ addToCart, cartItems, isCartOpen, setIsCartOpen, updateIt
                 <div className="tienda-container">
                     <section className="tienda-intro">
                         <h2>PRODUCTOS SERENIDAD</h2>
-                        <p>...</p>
-                        <p>...</p>
+                        <p>Párrafo. Haz clic para editar y agregar tu propio texto. Es fácil. Haz clic en "Editar texto" o doble clic aquí para agregar tu contenido y cambiar la fuente. Puedes arrastrar y soltar este texto donde quieras en tu página. En este espacio puedes contar tu historia y permitir a los usuarios saber más sobre ti.</p>
+                        <p>Este es un gran espacio para escribir un texto largo sobre tu empresa y servicios. Puedes usar este espacio para entrar en más de detalle sobre tu empresa. Habla de tu equipo y los servicios que ofreces. Cuenta a los visitantes la historia de cómo se te ocurrió la idea de tu negocio y qué te diferencia de tus competidores. Haz que tu empresa se destaque y muestra a los visitantes quién eres.</p>
                     </section>
 
                     <Carousel responsive={responsive}>

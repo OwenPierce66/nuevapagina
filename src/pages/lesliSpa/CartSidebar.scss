@@ -46,9 +46,11 @@
         .close-sidebar {
             background: none;
             border: none;
-            font-size: 1.5em;
+            font-size: 2.5em;
+            margin-right: -6px;
             cursor: pointer;
-            color: #555;
+            font-weight: 100;
+            color: #212020;
 
             &:hover {
                 color: #2d5661;
@@ -118,14 +120,18 @@
                 .item-name-price {
                     margin-bottom: 10px;
                     text-align: left;
-                    margin-left: -74px; // Espacio entre nombre/precio y controles
+                    width: 100%;
+                    // margin-left: -74px; // Espacio entre nombre/precio y controles
                     display: flex;
+
 
                     button {
                         background-color: white;
                         position: absolute;
-                        margin-left: 145px;
-                        margin-top: -11px;
+                        margin-left: 160px;
+                        border: none;
+                        font-size: 1.2em;
+
                     }
 
                     .item-name {
@@ -179,6 +185,7 @@
                     .item-total {
                         color: black;
                         font-size: 1.1em;
+                        font-family: system-ui;
                     }
 
                     .remove-item {
@@ -216,7 +223,8 @@
             font-size: 1.4em;
             font-weight: 100;
             display: flex;
-            color: #111;
+            color: black;
+            font-family: system-ui;
             margin: 15px 0;
         }
 
@@ -296,11 +304,11 @@
             .item-name-price {
                 margin-bottom: 10px;
                 text-align: left;
-                margin-left: -16px;
+                // margin-left: -16px;
 
                 button {
                     background-color: white;
-
+                    border: none;
                 }
             }
 
