@@ -61,12 +61,12 @@
      }
 
      .iconBars {
-         font-size: 2em;
+         font-size: 1em;
          color: #2d5661;
          background: #fff;
          border-radius: 50%;
          padding: 10px;
-         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+         //  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
          cursor: pointer;
          margin-left: 12px;
          transition: background 0.2s, color 0.2s;
@@ -93,7 +93,7 @@
          position: absolute;
          top: -8px;
          right: -10px;
-         background: #e74c3c;
+         //  background: #e74c3c;
          color: #fff;
          border-radius: 50%;
          padding: 2px 7px;
@@ -101,7 +101,7 @@
          font-weight: bold;
          min-width: 22px;
          text-align: center;
-         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.13);
+         //  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.13);
      }
 
      @media (min-width: 769px) {
@@ -117,7 +117,7 @@
          .cart-count {
              position: absolute;
              top: 18px;
-             right: 13px;
+             right: 6px;
              //  background: #e74c3c;
              color: #fff;
              border-radius: 50%;

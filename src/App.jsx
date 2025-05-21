@@ -56,7 +56,7 @@ function App() {
   };
 
   const cartItemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-
+  // const cartItemCount = cartItems.length;
   return (
     <Router>
       <ScrollToTop />
