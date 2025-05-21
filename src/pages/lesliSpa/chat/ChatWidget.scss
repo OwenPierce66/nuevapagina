@@ -7,8 +7,8 @@
 }
 
 .chat-icon-button {
-    width: 66px; // Size of the circular icon
-    height: 66px;
+    width: 55px; // Size of the circular icon
+    height: 55px;
     border-radius: 50%; // Make it round
     background-color: #2d5661; // Match your theme color
     color: white; // Icon color
@@ -233,6 +233,10 @@
 .igual {
     position: absolute;
     color: #2d5661;
+
+    .igual-icon {
+        font: .9em
+    }
 }
 
 .chat-input-area {

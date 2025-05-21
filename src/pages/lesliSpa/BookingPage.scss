@@ -1,5 +1,5 @@
 .booking-page {
-    padding: 40px;
+    padding: 55px;
     padding-left: 160px;
     font-family: 'Arial', sans-serif;
     background-color: #fdfdfd;
@@ -57,7 +57,7 @@
     .back-button {
         background: none;
         border: none;
-        color: #2d5661;
+        color: rgb(83, 83, 83);
         font-size: 1em;
         cursor: pointer;
         margin-bottom: 20px;
@@ -91,7 +91,8 @@
             display: block;
             color: #1e1e1e;
             font-size: .9em;
-            margin-bottom: 16px;
+            margin-top: 33px;
+            margin-bottom: 33px;
             font-weight: 100;
         }
 
@@ -208,7 +209,7 @@
             }
 
             &:hover {
-                background-color: #f0f0f0;
+                background-color: #2d566150;
             }
         }
 
@@ -222,6 +223,8 @@
         // width: 50%;
 
         .texto-reserva {
+            font-size: 1.6em;
+
             margin-bottom: 6px;
             font-family: AUTO;
         }
@@ -254,6 +257,11 @@
 
                     .separar-editar {
                         display: flex;
+
+                        .editar-texto {
+
+                            margin-left: 5px;
+                        }
                     }
                 }
             }
@@ -431,12 +439,17 @@
 
     @media (max-width: 670px) {
         .booking-page {
-            padding: 20px;
+            padding: 44px;
             padding-left: 20px;
             flex-direction: column;
             /* Cambia a columna */
             align-items: stretch;
             /* Asegura que los elementos ocupen todo el ancho */
+
+            p {
+                font-size: .8em;
+                margin-bottom: 44px;
+            }
         }
 
         .header {
@@ -445,11 +458,12 @@
         }
 
         .separar-titulos {
-            flex-direction: column;
+            // flex-direction: column;
             /* Cambia a columna */
             align-items: flex-start;
             /* Alinea los elementos al inicio */
-            gap: 10px;
+            // gap: 10px;
+            padding: 21px;
             /* Espacio entre los elementos */
         }
 
@@ -527,6 +541,8 @@
             .edit-link,
             .confirm-btn {
                 width: 100%;
+                height: 44px;
+
                 /* Asegura que los botones ocupen todo el ancho */
                 text-align: center;
                 /* Centra el texto */
@@ -557,7 +573,7 @@
     .back-button {
         background: none;
         border: none;
-        color: #2d5661;
+        color: rgb(70, 70, 70);
         font-size: .9rem;
         cursor: pointer;
         margin-bottom: 1rem;
@@ -594,7 +610,8 @@
 
     .client-details-section {
         .quitarborder {
-            margin-bottom: 1rem;
+            margin-bottom: 33px;
+            margin-top: 33px;
             color: #2d5661;
             font-size: 1.1rem;
             font-family: auto;
@@ -685,7 +702,7 @@
 
                 border: none !important;
                 text-decoration: none;
-                padding: 10px;
+                padding: 11px;
                 padding-left: 42px;
                 border: 1px solid black !important;
 
@@ -821,8 +838,22 @@
 
 @media (max-width: 768px) {
 
+    .form-separar {
+        flex-direction: column;
+        gap: 0 !important;
+    }
+
+    .show-more-sessions {
+        margin-bottom: 16px !important;
+    }
+
+    .confirm-btn {
+        height: 44px
+    }
+
     .calendar-section {
         flex-direction: column;
+        // margin-top: 16px;
     }
 
     .booking-grid {
@@ -846,10 +877,16 @@
         /* Alinea los elementos al inicio */
         gap: 10px;
         /* Espacio entre los elementos */
+        padding: 16px;
+
     }
 
     .booking-page {
-        padding: 33px;
+        padding: 44px;
+    }
+
+    .texto-informativo {
+        padding: 16px;
     }
 
     .calendar-info {
@@ -873,8 +910,14 @@
         width: 100% !important;
         padding: 0 !important;
         border-left: none !important;
-        border-top: 1px solid #ccc !important;
-        margin-top: 20px !important;
+        border-top: none;
+        margin-top: 0px !important;
+
+        h3 {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            font-size: 1.3rem;
+        }
     }
 
     .booking-form-view {

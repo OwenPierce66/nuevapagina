@@ -1,6 +1,7 @@
 import React from "react";
 import "./PiePaginaLesli.scss"; // Importa los estilos SCSS
 import logolesli from "../../images/logolesli.png"; // Imagen principal de fondo
+import { Link } from 'react-router-dom';
 
 const PiePaginaLesli = () => {
 
@@ -8,7 +9,7 @@ const PiePaginaLesli = () => {
 
     return (
 
-        <footer className="footer">
+        <footer className="footer-lesli">
             <div className="footer-container">
                 <div className="footer-logo">
                     <img src={logolesli} alt="Logo" className="footer-icon" />
@@ -18,11 +19,11 @@ const PiePaginaLesli = () => {
                 <div className="footer-menu">
                     <h3>Menú</h3>
                     <ul>
-                        <li>Acerca de</li>
-                        <li>Instalaciones</li>
-                        <li>Tratamientos</li>
-                        <li>Tienda</li>
-                        <li>Contacto</li>
+                        <li><Link to="/leslispa/acercade">Acerca de</Link></li>
+                        <li><Link to="/leslispa/instalaciones">Instalaciones</Link></li>
+                        <li><Link to="/leslispa/tratamientos">Tratamientos</Link></li>
+                        <li><Link to="/leslispa/tienda">Tienda</Link></li>
+                        <li><Link to="/leslispa/contacto">Contacto</Link></li>
                     </ul>
                 </div>
 

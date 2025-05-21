@@ -152,8 +152,8 @@
     color: #292727 !important;
     display: flex !important;
     // flex-direction: column !important;
-    padding: 10px !important;
-    margin: 16px 33px;
+    padding: 16px !important;
+    margin: 16px 26px;
 
     &:last-child {
         border-bottom: none;
@@ -185,6 +185,7 @@
 @media (max-width: 480px) {
     .modal-content {
         width: 95%; // Un poco más de ancho en pantallas muy pequeñas
-        padding: 15px;
+        // padding: 15px;
+        height: 100%;
     }
 }

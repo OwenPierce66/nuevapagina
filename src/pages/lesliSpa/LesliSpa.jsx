@@ -14,11 +14,13 @@ import agua2 from "../../images/agua2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping, faUser, faBars } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import PiePaginaLesli from "./PiePaginaLesli";
+import NavbarLesli from "./NavbarLesli";
 
 const LesliSpa = () => {
     const [scrollY, setScrollY] = useState(0);
     const [showTranquilidad, setShowTranquilidad] = useState(false);
-    const [menuOpen, setMenuOpen] = useState(false);
+    // const [menuOpen, setMenuOpen] = useState(false);
     const [showPacifico, setShowPacifico] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -53,7 +55,7 @@ const LesliSpa = () => {
 
     return (
         <div className="serenidad">
-            <header className="serenidad-header">
+            {/* <header className="serenidad-header">
                 <div className="logo">
                     <div className="logo-circulo" />
                     <div className="titulos">
@@ -85,7 +87,9 @@ const LesliSpa = () => {
                         <span>0</span>
                     </div>
                 </nav>
-            </header>
+            </header> */}
+
+            <NavbarLesli />
 
             <main className="serenidad-main" style={{ transform: `translateY(${scrollY * 0.3}px)` }}>
                 <div className="background-overlay">
@@ -194,46 +198,8 @@ const LesliSpa = () => {
                 </div>
             </div>
 
-            <footer className="footer">
-                <div className="footer-container">
-                    <div className="footer-logo">
-                        <img src={logolesli} alt="Logo" className="footer-icon" />
-                        <h2>SERENIDAD<br />TERAPIA SPA</h2>
-                    </div>
-                    <div className="footer-menu">
-                        <h3>Menú</h3>
-                        <ul>
-                            <li>Acerca de</li>
-                            <li>Instalaciones</li>
-                            <li>Tratamientos</li>
-                            <li>Tienda</li>
-                            <li>Contacto</li>
-                        </ul>
-                    </div>
-                    <div className="footer-social">
-                        <h3>Síguenos</h3>
-                        <ul>
-                            <li>Facebook</li>
-                            <li>Instagram</li>
-                            <li>Yelp</li>
-                            <li>TripAdvisor</li>
-                        </ul>
-                    </div>
-                    <div className="footer-contact">
-                        <h3>Reservas</h3>
-                        <p>Mail: info@misitio.com</p>
-                        <p>Tel: +52-1-33-12345678</p>
-                    </div>
-                </div>
-                <div className="footer-bottom">
-                    <p>© 2035 Creado por Serenidad Terapia Spa con <a href="https://wix.com">Wix.com</a></p>
-                    <div className="footer-links">
-                        <a href="#">Términos y condiciones</a>
-                        <a href="#">Política de envío</a>
-                        <a href="#">Política de privacidad</a>
-                    </div>
-                </div>
-            </footer>
+
+            <PiePaginaLesli />
         </div>
     );
 };

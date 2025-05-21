@@ -6,29 +6,32 @@ import alberca from '../../images/alberca.png';
 import gimnasio from '../../images/gimnasio.png';
 import PiePaginaLesli from './PiePaginaLesli';
 import NavbarLesli from './NavbarLesli';
-const secciones = [
-    {
-        titulo: "ZONA DE DESCANSO",
-        texto: "Párrafo. Haz clic aquí para agregar tu propio texto y editarlo. Es fácil. Haz clic en  Editar texto o doble clic aquí para agregar tu contenido y cambiar la fuente. En este espacio puedes contar tu historia y permitir que los usuarios sepan más sobre ti. ",
-        imagen: sillas
-    },
-    {
-        titulo: "SAUNA",
-        texto: "Aquí puedes describir otra área, como la zona de masajes o meditación. Párrafo. Haz clic aquí para agregar tu propio texto y editarlo. Es fácil. Haz clic en Editar texto o doble clic aquí para agregar tu contenido y cambiar la fuente. En este espacio puedes contar tu historia y permitir que los usuarios sepan más sobre ti.",
-        imagen: bote
-    },
-    {
-        titulo: "ALBERCA",
-        texto: "Esta sección puede hablar de los aromas y esencias que usás. Párrafo. Haz clic aquí para agregar tu propio texto y editarlo. Es fácil. Haz clic en Editar texto o doble clic aquí para agregar tu contenido y cambiar la fuente. En este espacio puedes contar tu historia y permitir que los usuarios sepan más sobre ti.",
-        imagen: alberca
-    },
-    {
-        titulo: "GIMNASIO",
-        texto: "Describe la experiencia de estar al aire libre o en jardines. Párrafo. Haz clic aquí para agregar tu propio texto y editarlo. Es fácil. Haz clic en Editar texto o doble clic aquí para agregar tu contenido y cambiar la fuente. En este espacio puedes contar tu historia y permitir que los usuarios sepan más sobre ti.",
-        imagen: gimnasio
-    }
-];
+
 const LesliInstalaciones = () => {
+
+
+    const secciones = [
+        {
+            titulo: "ZONA DE DESCANSO",
+            texto: "Párrafo. Haz clic aquí para agregar tu propio texto y editarlo. Es fácil. Haz clic en  Editar texto o doble clic aquí para agregar tu contenido y cambiar la fuente. En este espacio puedes contar tu historia y permitir que los usuarios sepan más sobre ti. ",
+            imagen: sillas
+        },
+        {
+            titulo: "SAUNA",
+            texto: "Aquí puedes describir otra área, como la zona de masajes o meditación. Párrafo. Haz clic aquí para agregar tu propio texto y editarlo. Es fácil. Haz clic en Editar texto o doble clic aquí para agregar tu contenido y cambiar la fuente. En este espacio puedes contar tu historia y permitir que los usuarios sepan más sobre ti.",
+            imagen: bote
+        },
+        {
+            titulo: "ALBERCA",
+            texto: "Esta sección puede hablar de los aromas y esencias que usás. Párrafo. Haz clic aquí para agregar tu propio texto y editarlo. Es fácil. Haz clic en Editar texto o doble clic aquí para agregar tu contenido y cambiar la fuente. En este espacio puedes contar tu historia y permitir que los usuarios sepan más sobre ti.",
+            imagen: alberca
+        },
+        {
+            titulo: "GIMNASIO",
+            texto: "Describe la experiencia de estar al aire libre o en jardines. Párrafo. Haz clic aquí para agregar tu propio texto y editarlo. Es fácil. Haz clic en Editar texto o doble clic aquí para agregar tu contenido y cambiar la fuente. En este espacio puedes contar tu historia y permitir que los usuarios sepan más sobre ti.",
+            imagen: gimnasio
+        }
+    ];
     return (
         <div>
             <div><NavbarLesli /></div>

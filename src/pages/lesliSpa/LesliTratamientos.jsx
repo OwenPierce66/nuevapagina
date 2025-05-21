@@ -92,9 +92,9 @@ const LesliTratamientos = () => {
 
     const handleReservarClick = (service) => {
         setSelectedServicesInQuote([service]);
-        navigate('/leslispa/bookingpage', { state: { selectedServices: [service] } });
         setIsSummaryModalOpen(true);
         setIsAddServiceModalOpen(false);
+        // NO navegues aquí
     };
 
     const handleAddServiceClick = () => {
@@ -121,10 +121,17 @@ const LesliTratamientos = () => {
         setIsSummaryModalOpen(true);
     };
 
+    const handleOpenBookingPage = () => {
+        navigate('/leslispa/bookingpage', { state: { selectedServices: selectedServicesInQuote } });
+    };
+
+
     return (
         <div>
-            <div><NavbarLesli /></div>
-
+            <div>
+                <NavbarLesli />
+                {/* ...resto del código... */}
+            </div>
             <section className="tratamientos-section">
                 <h2 className="tratamientos-title">TRATAMIENTOS</h2>
                 <p className="tratamientos-text">Descubre una experiencia de relajación y bienestar única en Lesli Spa.

@@ -16,7 +16,7 @@ import NavbarLesli from './NavbarLesli';
 import PiePaginaLesli from './PiePaginaLesli';
 dayjs.locale('es');
 
-const BookingPage = ({ selectedServicesForBooking = [] }) => {
+const BookingPage = (selectedServicesForBooking = []) => {
     const navigate = useNavigate();
     const location = useLocation();
     const selectedServicesFromLocation = location.state?.selectedServices || [];
@@ -272,7 +272,7 @@ const BookingPage = ({ selectedServicesForBooking = [] }) => {
                                                         </div>
 
                                                         {!showAllSessions && (
-                                                            <div className="show-more-sessions" style={{ textAlign: 'center', marginTop: '10px' }}>
+                                                            <div className="show-more-sessions" style={{ textAlign: 'center', marginTop: '10px', marginBottom: '16px' }}>
                                                                 <button onClick={() => setShowAllSessions(true)} className="show-more-button">
                                                                     Mostrar todas las sesiones
                                                                 </button>
@@ -333,7 +333,7 @@ const BookingPage = ({ selectedServicesForBooking = [] }) => {
                                                         <div>
                                                             <FontAwesomeIcon icon={faEdit} />
                                                         </div>
-                                                        <div>Editar</div>
+                                                        <div className='editar-texto'>Editar</div>
                                                     </div>
                                                 </button>
                                             </div>

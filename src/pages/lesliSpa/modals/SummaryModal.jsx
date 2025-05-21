@@ -11,7 +11,11 @@ const SummaryModal = ({ isOpen, onClose, onAddServiceClick, servicesInQuote, onR
     if (!isOpen) return null;
 
     const handleProgramarCita = () => {
-        onClose(); // Just close the modal
+        if (location.pathname !== '/leslispa/bookingpage') {
+            // Solo navega si NO estamos ya en bookingpage
+            navigate('/leslispa/bookingpage', { state: { selectedServices: servicesInQuote } });
+        }
+        onClose(); // Cierra el modal en ambos casos
     };
 
     if (!servicesInQuote || servicesInQuote.length === 0) {

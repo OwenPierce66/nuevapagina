@@ -112,7 +112,7 @@ const ChatWidget = () => {
             ) : (
                 <button className="chat-icon-button" onClick={toggleChat}>
                     <div className='igual'>=</div>
-                    <FontAwesomeIcon icon={faComment} />
+                    <FontAwesomeIcon className='igual-icon' icon={faComment} />
                 </button>
             )}
         </div>

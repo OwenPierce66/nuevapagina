@@ -9,8 +9,7 @@ import NavbarLesli from './NavbarLesli';
 
 // Componente de la página completa del carrito
 // Recibe los items y las funciones para modificar el carrito desde App.jsx
-const CartPage = ({ cartItems, onUpdateQuantity, onRemoveItem }) => {
-
+const CartPage = ({ cartItemCount, cartItems, addToCart, isCartOpen, setIsCartOpen, updateItemQuantity, removeItemFromCart, onUpdateQuantity, onRemoveItem }) => {
     // Calcula el subtotal (misma lógica que en el sidebar)
     const subtotal = cartItems.reduce((sum, item) => {
         const price = parseFloat(item.precio.replace('$', '').replace(',', ''));
@@ -23,7 +22,7 @@ const CartPage = ({ cartItems, onUpdateQuantity, onRemoveItem }) => {
     return (
         <div className="cart-page-container">
             {/* <h1>Carrito de compras</h1>  */}
-            <NavbarLesli />
+            <NavbarLesli cartItemCount={cartItemCount} />
             <div className="cart-page-grid">
                 <div className="cart-items-section">
                     <button className="finalizar-compra-btn">Finalizar compra</button>

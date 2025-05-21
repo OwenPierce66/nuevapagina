@@ -83,7 +83,7 @@ const AcercaDe = () => {
 
     return (
         <div className="acerca-de-container">
-            <div><NavbarLesli /></div>
+            <div>  <NavbarLesli /></div>
             <div className='centrar'>
                 <section className="acerca-de-intro">
                     {/* Puedes ajustar este título si el de la imagen de referencia es diferente */}

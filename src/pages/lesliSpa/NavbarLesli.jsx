@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./NavbarLesli.scss"; // Importa los estilos SCSS
-import logolesli from "../../images/logolesli.png"; // Imagen principal de fondo
+import "./NavbarLesli.scss";
+// import logolesli from "../../images/logolesli.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping, faUser, faBars } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
-const NavbarLesli = () => {
+const NavbarLesli = ({ cartItemCount = 0 }) => {
     const [scrollY, setScrollY] = useState(0);
     const [showTranquilidad, setShowTranquilidad] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
@@ -18,12 +18,11 @@ const NavbarLesli = () => {
 
     useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768); // Teléfono: 768px o menos
+            setIsMobile(window.innerWidth <= 768);
         };
 
         window.addEventListener("resize", handleResize);
-        handleResize(); // Ejecutar al cargar
-
+        handleResize();
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
@@ -51,14 +50,26 @@ const NavbarLesli = () => {
                     </div>
                 </div>
 
-                {/* Ícono menú hamburguesa */}
                 <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
-                    <div>
+                    <div className="cart-icon">
                         <FontAwesomeIcon className="iconShop" icon={faBagShopping} />
+                        <span className="cart-count">{cartItemCount}</span>
                     </div>
-                    <div className="iconBars">
-                        <FontAwesomeIcon icon={faBars} />
-                    </div>
+                    {isMobile && (
+                        <div className="iconBars" onClick={() => setMenuOpen(!menuOpen)}>
+                            <FontAwesomeIcon icon={faBars} />
+                        </div>
+                    )}
+
+                    {isMobile && menuOpen && (
+                        <nav className="menu-lesli-mobile">
+                            <a href="/leslispa/acercade" onClick={() => setMenuOpen(false)}>Acerca de</a>
+                            <a href="/leslispa/instalaciones" onClick={() => setMenuOpen(false)}>Instalaciones</a>
+                            <a href="/leslispa/tratamientos" onClick={() => setMenuOpen(false)}>Tratamientos</a>
+                            <a href="/leslispa/tienda" onClick={() => setMenuOpen(false)}>Tienda</a>
+                            <a href="/leslispa/contacto" onClick={() => setMenuOpen(false)}>Contacto</a>
+                        </nav>
+                    )}
                 </div>
 
                 {/* Menú en móvil */}

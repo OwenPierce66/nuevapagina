@@ -418,14 +418,6 @@
 
 
 
-
-    .new-design-layout {
-        display: flex;
-        // justify-content: center; // Si quieres centrar el bloque completo horizontalmente
-        gap: 40px; // Espacio entre la imagen y los datos
-        align-items: flex-start; // Alinea los elementos al inicio
-    }
-
     .new-design-image-container {
         flex-basis: 50%; // La imagen intenta ocupar el 50% del espacio disponible
         flex-shrink: 0; // Evita que la imagen se encoja más de lo necesario
@@ -543,5 +535,16 @@
         .new-design-image-container {
             max-width: 100%; // Permite que la imagen ocupe todo el ancho
         }
+
+
+
+
+        .new-design-layout {
+            flex-direction: column; // Apila la imagen y los datos
+            gap: 20px; // Reduce el espacio entre ellos
+            margin-left: 0px !important;
+
+        }
+
     }
 }

@@ -8,6 +8,125 @@
      margin: 0 0 -33px;
      color: #2D5661;
 
+
+
+     .menu-lesli-mobile {
+         position: fixed;
+         top: 0;
+         right: 0;
+         width: 80vw;
+         max-width: 320px;
+         height: 100vh;
+         background: #2d5661;
+         box-shadow: -2px 0 16px rgba(0, 0, 0, 0.18);
+         z-index: 9999;
+         display: flex;
+         flex-direction: column;
+         padding: 48px 24px 24px 24px;
+         animation: slideInMenuLesli .3s;
+         transition: transform 0.3s;
+     }
+
+     @keyframes slideInMenuLesli {
+         from {
+             transform: translateX(100%);
+         }
+
+         to {
+             transform: translateX(0);
+         }
+     }
+
+     .menu-lesli-mobile a {
+         color: #fff;
+         text-decoration: none;
+         font-size: 1.2em;
+         font-family: 'Times New Roman', serif;
+         padding: 16px 0;
+         border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+         transition: background 0.2s, color 0.2s;
+         font-weight: 400;
+         letter-spacing: 1px;
+     }
+
+     .menu-lesli-mobile a:last-child {
+         border-bottom: none;
+     }
+
+     .menu-lesli-mobile a:hover,
+     .menu-lesli-mobile a:focus {
+         background: #1b3840;
+         color: #ffe082;
+         border-radius: 8px;
+     }
+
+     .iconBars {
+         font-size: 2em;
+         color: #2d5661;
+         background: #fff;
+         border-radius: 50%;
+         padding: 10px;
+         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+         cursor: pointer;
+         margin-left: 12px;
+         transition: background 0.2s, color 0.2s;
+     }
+
+     .iconBars:hover {
+         background: #2d5661;
+         color: #fff;
+     }
+
+     .menu-icon {
+         display: flex;
+         align-items: center;
+         gap: 12px;
+         position: relative;
+     }
+
+     .cart-icon {
+         position: relative;
+         margin-right: 8px;
+     }
+
+     .cart-count {
+         position: absolute;
+         top: -8px;
+         right: -10px;
+         background: #e74c3c;
+         color: #fff;
+         border-radius: 50%;
+         padding: 2px 7px;
+         font-size: 0.8em;
+         font-weight: bold;
+         min-width: 22px;
+         text-align: center;
+         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.13);
+     }
+
+     @media (min-width: 769px) {
+         .menu-lesli-mobile {
+             display: none !important;
+         }
+     }
+
+
+     .cart-icon {
+         position: relative;
+
+         .cart-count {
+             position: absolute;
+             top: 18px;
+             right: 13px;
+             //  background: #e74c3c;
+             color: #fff;
+             border-radius: 50%;
+             padding: 2px 7px;
+             font-size: 0.5em;
+             font-weight: 100;
+         }
+     }
+
      .logo {
          display: flex;
          // flex-direction: column;
@@ -123,6 +242,10 @@
 
 
  @media screen and (max-width: 768px) {
+     .serenidad-header {
+         padding: 33px 16px;
+     }
+
      .menu-lesli {
          display: none !important;
          flex-direction: column;
