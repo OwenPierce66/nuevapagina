@@ -62,6 +62,7 @@ const LesliTienda = ({ cartItemCount, addToCart, cartItems, isCartOpen, setIsCar
 
 
             {/* <div><NavbarLesli /></div> */}
+            <NavbarLesli cartItemCount={cartItemCount} setIsCartOpen={setIsCartOpen} />
 
 
             {selectedProduct ? (
@@ -69,13 +70,12 @@ const LesliTienda = ({ cartItemCount, addToCart, cartItems, isCartOpen, setIsCar
                     product={selectedProduct}
                     onBack={handleBackToList}
                     addToCart={addToCart}
-                    setIsCartOpen={setIsCartOpen}
+
                 />
             ) : (
                 // Muestra la vista de lista
                 <div className="tienda-container">
                     {/* <NavbarLesli cartItemCount={cartItemCount} /> */}
-                    <NavbarLesli cartItemCount={cartItemCount} />
 
                     <section className="tienda-intro">
                         <h2>PRODUCTOS SERENIDAD</h2>
@@ -114,6 +114,7 @@ const LesliTienda = ({ cartItemCount, addToCart, cartItems, isCartOpen, setIsCar
                 cartItems={cartItems}
                 onUpdateQuantity={updateItemQuantity} // Pasa updateItemQuantity
                 onRemoveItem={removeItemFromCart} // Pasa removeItemFromCart
+
             />
 
             <PiePaginaLesli />

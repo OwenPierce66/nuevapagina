@@ -10,7 +10,7 @@ import piscina3 from '../../images/piscina3.png';
 import NavbarLesli from './NavbarLesli';
 import PiePaginaLesli from './PiePaginaLesli';
 
-const AcercaDe = () => {
+const AcercaDe = ({ cartItemCount, setIsCartOpen }) => {
 
 
     const testimonials = [
@@ -83,7 +83,7 @@ const AcercaDe = () => {
 
     return (
         <div className="acerca-de-container">
-            <div>  <NavbarLesli /></div>
+            <div>    <NavbarLesli cartItemCount={cartItemCount} setIsCartOpen={setIsCartOpen} /></div>
             <div className='centrar'>
                 <section className="acerca-de-intro">
                     {/* Puedes ajustar este título si el de la imagen de referencia es diferente */}

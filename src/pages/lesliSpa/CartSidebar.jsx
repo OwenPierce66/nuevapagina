@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 
 // Componente del Sidebar del Carrito
 // Recibe items, estado de apertura, función de cerrar, y funciones para modificar el carrito
-const CartSidebar = ({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem }) => {
+const CartSidebar = ({ cartItemCount, cartItems, isOpen, onClose, onUpdateQuantity, onRemoveItem }) => {
 
     // Usa el hook useNavigate
     const navigate = useNavigate();

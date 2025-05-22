@@ -8,7 +8,7 @@ import cactus2 from '../../images/cactus2.png';
 import PiePaginaLesli from './PiePaginaLesli';
 import NavbarLesli from './NavbarLesli';
 
-const Contacto = () => {
+const Contacto = ({ cartItemCount, setIsCartOpen }) => {
     const [isMobile, setIsMobile] = useState(false);
 
     // Efecto para detectar el tamaño de la pantalla
@@ -32,7 +32,7 @@ const Contacto = () => {
 
     return (
         <div className="contacto-container">
-            <div><NavbarLesli /></div>
+            <div> <NavbarLesli cartItemCount={cartItemCount} setIsCartOpen={setIsCartOpen} /></div>
             <section className="contacto-intro">
                 <h2>CONTÁCTANOS</h2>
                 <div className='minimizar'>

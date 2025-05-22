@@ -16,7 +16,7 @@ import NavbarLesli from './NavbarLesli';
 import PiePaginaLesli from './PiePaginaLesli';
 dayjs.locale('es');
 
-const BookingPage = (selectedServicesForBooking = []) => {
+const BookingPage = ({ cartItemCount, setIsCartOpen }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const selectedServicesFromLocation = location.state?.selectedServices || [];
@@ -210,7 +210,7 @@ const BookingPage = (selectedServicesForBooking = []) => {
 
     return (
         <div>
-            <NavbarLesli />
+            <NavbarLesli cartItemCount={cartItemCount} setIsCartOpen={setIsCartOpen} />
 
             <div className="booking-page">
                 <div className="header">

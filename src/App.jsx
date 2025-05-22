@@ -4,6 +4,7 @@ import ScrollToTop from "./ScrollTop";
 import Navbar from "./pages/navbar/Navbar";
 import ChatWidget from "./pages/lesliSpa/chat/ChatWidget";
 import LesliInstalaciones from './pages/lesliSpa/LesliInstalaciones';
+import CartSidebar from './pages/lesliSpa/CartSidebar';
 
 // Componentes cargados dinámicamente
 // const Home = lazy(() => import("./pages/home/Home"));
@@ -66,17 +67,23 @@ function App() {
           <Route path="/" element={<HellsVanity />} />
           <Route path="/home" element={<HellsVanity />} />
           <Route path="/hellsvanity" element={<HellsVanity />} />
-          <Route path="/leslispa" element={<LesliSpa />} />
-          <Route path="/leslispa/acercade" element={<AcercaDe />} />
+          <Route path="/leslispa" element={<LesliSpa cartItemCount={cartItemCount}
+            setIsCartOpen={setIsCartOpen} />} />
+          <Route path="/leslispa/acercade" element={<AcercaDe cartItemCount={cartItemCount}
+            setIsCartOpen={setIsCartOpen} />} />
           <Route
             path="/leslispa/tratamientos"
             element={
               <LesliTratamientos
-
+                cartItemCount={cartItemCount}
+                setIsCartOpen={setIsCartOpen}
               />
             }
           />
-          <Route path="/leslispa/instalaciones" element={<LesliInstalaciones />} />
+          <Route path="/leslispa/instalaciones"
+            element={<LesliInstalaciones
+              cartItemCount={cartItemCount}
+              setIsCartOpen={setIsCartOpen} />} />
           <Route
             path="/leslispa/tienda"
             element={
@@ -88,20 +95,40 @@ function App() {
                 updateItemQuantity={updateItemQuantity}
                 removeItemFromCart={removeItemFromCart}
                 cartItemCount={cartItemCount}
+
               />
             }
           />
-          <Route path="/leslispa/contacto" element={<Contacto />} />
-          <Route path="/leslispa/bookingpage" element={<BookingPage />} />
+          <Route
+            path="/leslispa/contacto"
+            element={<Contacto
+              cartItemCount={cartItemCount}
+              setIsCartOpen={setIsCartOpen} />} />
+          <Route
+            path="/leslispa/bookingpage"
+            element={<BookingPage
+              cartItemCount={cartItemCount}
+              setIsCartOpen={setIsCartOpen}
+            />} />
           <Route
             path="/leslispa/carrito"
             element={<CartPage
               cartItems={cartItems}
               onUpdateQuantity={updateItemQuantity}
               onRemoveItem={removeItemFromCart}
+              cartItemCount={cartItemCount}
+              setIsCartOpen={setIsCartOpen}
             />}
           />
         </Routes>
+
+        <CartSidebar
+          isOpen={isCartOpen}
+          onClose={() => setIsCartOpen(false)}
+          cartItems={cartItems}
+          onUpdateQuantity={updateItemQuantity}
+          onRemoveItem={removeItemFromCart}
+        />
       </Suspense>
       <ChatWidget />
     </Router>

@@ -14,7 +14,7 @@ import SummaryModal from "./modals/SummaryModal";
 import AddServiceModal from "./modals/AddServiceModal";
 import { useNavigate } from "react-router-dom";
 
-const LesliTratamientos = () => {
+const LesliTratamientos = ({ cartItemCount, setIsCartOpen }) => {
     const [categoriaActiva, setCategoriaActiva] = useState("Todos");
     const [isSummaryModalOpen, setIsSummaryModalOpen] = useState(false);
     const [isAddServiceModalOpen, setIsAddServiceModalOpen] = useState(false);
@@ -129,7 +129,7 @@ const LesliTratamientos = () => {
     return (
         <div>
             <div>
-                <NavbarLesli />
+                <NavbarLesli cartItemCount={cartItemCount} setIsCartOpen={setIsCartOpen} />
                 {/* ...resto del código... */}
             </div>
             <section className="tratamientos-section">

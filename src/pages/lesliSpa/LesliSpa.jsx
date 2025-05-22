@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 import PiePaginaLesli from "./PiePaginaLesli";
 import NavbarLesli from "./NavbarLesli";
 
-const LesliSpa = () => {
+const LesliSpa = ({ cartItemCount, setIsCartOpen }) => {
     const [scrollY, setScrollY] = useState(0);
     const [showTranquilidad, setShowTranquilidad] = useState(false);
     // const [menuOpen, setMenuOpen] = useState(false);
@@ -89,7 +89,7 @@ const LesliSpa = () => {
                 </nav>
             </header> */}
 
-            <NavbarLesli />
+            <NavbarLesli cartItemCount={cartItemCount} setIsCartOpen={setIsCartOpen} />
 
             <main className="serenidad-main" style={{ transform: `translateY(${scrollY * 0.3}px)` }}>
                 <div className="background-overlay">

@@ -7,7 +7,7 @@ import gimnasio from '../../images/gimnasio.png';
 import PiePaginaLesli from './PiePaginaLesli';
 import NavbarLesli from './NavbarLesli';
 
-const LesliInstalaciones = () => {
+const LesliInstalaciones = ({ cartItemCount, setIsCartOpen }) => {
 
 
     const secciones = [
@@ -34,7 +34,8 @@ const LesliInstalaciones = () => {
     ];
     return (
         <div>
-            <div><NavbarLesli /></div>
+            <div>                    <NavbarLesli cartItemCount={cartItemCount} setIsCartOpen={setIsCartOpen} />
+            </div>
             <div className='texto-dearriba'>
                 <div className='texto-titulo'>LA EXPERIENCIA DE SERENIDAD</div>
                 <div className='texto-parrafo'>
