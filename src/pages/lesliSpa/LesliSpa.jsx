@@ -11,6 +11,8 @@ import perfume from "../../images/perfume.png";
 import piedras from "../../images/piedras.png";
 import agua from "../../images/agua.png";
 import agua2 from "../../images/agua2.png";
+import sillafon from "../../images/sillafon.png";
+import albercafon from "../../images/albercafon.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping, faUser, faBars } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
@@ -190,10 +192,21 @@ const LesliSpa = ({ cartItemCount, setIsCartOpen }) => {
                         </div>
                     </div>
                     <div className="imagenesJuntas">
-                        <img src={spa5} alt="Masaje relajante" className="serenidadHome-image2" />
-                        <div className="imagenPrimera" />
-                        <img src={spa6} alt="Masaje relajante" className="serenidadHome-image2" />
-                        <div className="imagenSegunda" />
+                        {isMobile ? (
+                            <>
+                                <img src={sillafon} alt="Sillas" className="serenidadHome-image2" />
+                                <div className="imagenPrimera" />
+                                <img src={albercafon} alt="Alberca" className="serenidadHome-image2" />
+                                <div className="imagenSegunda" />
+                            </>
+                        ) : (
+                            <>
+                                <img src={spa5} alt="Masaje relajante" className="serenidadHome-image2" />
+                                <div className="imagenPrimera" />
+                                <img src={spa6} alt="Masaje relajante" className="serenidadHome-image2" />
+                                <div className="imagenSegunda" />
+                            </>
+                        )}
                     </div>
                 </div>
             </div>
