@@ -13,13 +13,19 @@ import PiePaginaLesli from './PiePaginaLesli';
 import SummaryModal from "./modals/SummaryModal";
 import AddServiceModal from "./modals/AddServiceModal";
 import { useNavigate } from "react-router-dom";
+import ExitConfirmationModal from "./modals/ExitConfirmationModal";
 
 const LesliTratamientos = ({ cartItemCount, setIsCartOpen }) => {
     const [categoriaActiva, setCategoriaActiva] = useState("Todos");
     const [isSummaryModalOpen, setIsSummaryModalOpen] = useState(false);
     const [isAddServiceModalOpen, setIsAddServiceModalOpen] = useState(false);
     const [selectedServicesInQuote, setSelectedServicesInQuote] = useState([]);
+    const [exitModalOrigin, setExitModalOrigin] = useState(null); // "summary" | "add"
+    const [isExitConfirmationOpen, setIsExitConfirmationOpen] = useState(false);
+
     const navigate = useNavigate();
+
+
 
     const servicios = [
         {
@@ -79,6 +85,32 @@ const LesliTratamientos = ({ cartItemCount, setIsCartOpen }) => {
             imagen: masajecabello
         }
     ];
+
+    const handleAttemptCloseSummaryModal = () => {
+        setExitModalOrigin("summary");
+        setIsExitConfirmationOpen(true);
+    };
+
+    const handleAttemptCloseAddServiceModal = () => {
+        setExitModalOrigin("add");
+        setIsExitConfirmationOpen(true);
+    };
+
+    const handleCancelExit = () => {
+        setIsExitConfirmationOpen(false);
+        setExitModalOrigin(null);
+    };
+
+    const handleConfirmExit = () => {
+        if (exitModalOrigin === "summary") {
+            setIsSummaryModalOpen(false);
+        } else if (exitModalOrigin === "add") {
+            setIsAddServiceModalOpen(false);
+        }
+        setExitModalOrigin(null);
+        setIsExitConfirmationOpen(false);
+    };
+
 
     const serviciosFiltrados = categoriaActiva === "Todos"
         ? servicios
@@ -180,7 +212,7 @@ const LesliTratamientos = ({ cartItemCount, setIsCartOpen }) => {
             {isSummaryModalOpen && (
                 <SummaryModal
                     isOpen={isSummaryModalOpen}
-                    onClose={handleCloseAllModals}
+                    onClose={handleAttemptCloseSummaryModal} // ahora con confirmación
                     onAddServiceClick={handleAddServiceClick}
                     servicesInQuote={selectedServicesInQuote}
                     onRemoveService={handleRemoveService}
@@ -190,12 +222,18 @@ const LesliTratamientos = ({ cartItemCount, setIsCartOpen }) => {
             {isAddServiceModalOpen && (
                 <AddServiceModal
                     isOpen={isAddServiceModalOpen}
-                    onClose={handleCloseAllModals}
+                    onClose={handleAttemptCloseAddServiceModal} // ahora con confirmación
                     onServiceSelect={handleServiceSelectInAddModal}
                     onBack={handleBackToSummary}
                     allServices={servicios}
                 />
             )}
+
+            <ExitConfirmationModal
+                isOpen={isExitConfirmationOpen}
+                onCancel={handleCancelExit}
+                onConfirm={handleConfirmExit}
+            />
         </div>
     );
 };
